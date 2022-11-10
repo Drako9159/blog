@@ -1,0 +1,225 @@
+@font-face {
+  font-family: montseBold;
+  src: url("../assets/Montserrat-Medium.ttf");
+}
+.container {
+  font-family: montseBold;
+  color: #eff0ff;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+.containerWhite {
+  font-family: montseBold;
+  color: #3d3e44;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav ul {
+  display: flex;
+  color: #cecfda;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+}
+.nav ul li {
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 20px;
+  margin: 5px;
+  transition: color 0.3s ease;
+}
+.nav ul li:before {
+  content: "";
+  position: relative;
+  display: block;
+  top: 25px;
+  height: 2px;
+  max-width: 0;
+  transition: transform 0.3s ease;
+  background-color: #eff0ff;
+  transition: max-width 1s cubic-bezier(0.25, 0, 0, 1);
+}
+.nav ul li:hover {
+  color: #eff0ff;
+}
+.nav ul li:hover:before {
+  max-width: 200px;
+}
+
+.navBlack ul {
+  display: flex;
+  color: #121213;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+}
+.navBlack ul li {
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 20px;
+  margin: 5px;
+  transition: color 0.3s ease;
+}
+.navBlack ul li:before {
+  content: "";
+  position: relative;
+  display: block;
+  top: 25px;
+  height: 2px;
+  max-width: 0;
+  transition: transform 0.3s ease;
+  background-color: #121213;
+  transition: max-width 1s cubic-bezier(0.25, 0, 0, 1);
+}
+.navBlack ul li:hover {
+  color: #121213;
+}
+.navBlack ul li:hover:before {
+  max-width: 200px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 200px;
+}
+
+.dayOrNight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  box-shadow: 0 0 0 2px #cecfda67;
+  width: 3.3rem;
+  height: 3.3rem;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.dayOrNight:hover {
+  box-shadow: 0 0 0 2px #cecfdaf8;
+}
+.Night {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  box-shadow: 0 0 0 2px #b4b4c4bd;
+  width: 3.3rem;
+  height: 3.3rem;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.Night:hover {
+  box-shadow: 0 0 0 2px #1f1f20e3;
+}
+.pickDay {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  transform: translateX(50px);
+  opacity: 0;
+  visibility: hidden;
+}
+.pickDayAnimation {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+
+  animation: day 1s ease;
+}
+@keyframes day {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+.pickNight {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  transform: translateX(-50px);
+  opacity: 0;
+  visibility: hidden;
+}
+.pickNightAnimation {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+
+  animation: night 1s ease;
+}
+@keyframes night {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+.icon {
+  border-radius: 100%;
+  box-shadow: 0 0 0 2px #cecfda67;
+  width: 3.3rem;
+  height: 3.3rem;
+}
+.whiteGrad {
+  --b: 5px;
+  color: #313149;
+  display: inline-block;
+  width: 3.3rem;
+  height: 3.3rem;
+  position: relative;
+  z-index: 0;
+}
+.whiteGrad:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--c, linear-gradient(to right, #9c20aa, #6e6c6d));
+  padding: var(--b);
+  border-radius: 50%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  --b: 4px;
+  --c: linear-gradient(-40deg, black 50%, blue 0); 
+  
+  transform: rotate(20deg);
+  transition: transform 5s ease infinite;
+}

@@ -1,0 +1,16 @@
+.containerWhite{
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    width: 100%;
+    height: 700px; 
+    transition: background-color .5s ease; 
+}
+.containerBlack{
+    display: flex;
+    justify-content: center;
+    background-color: #1F2028;
+    width: 100%;
+    height: 700px;
+    transition: background-color .5s ease;
+}
