@@ -220,6 +220,6 @@
   --b: 4px;
   --c: linear-gradient(-40deg, black 50%, blue 0); 
   
-  transform: rotate(20deg);
-  transition: transform 5s ease infinite;
+  transform: rotate(300deg);
+  transition: transform 10s ease;
 }
