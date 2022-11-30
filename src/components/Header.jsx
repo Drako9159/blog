@@ -30,10 +30,10 @@ export default function Header({ color, setColor }) {
     <div
       className={color === "black" ? styles.container : styles.containerWhite}
     >
-      <div className={styles.title}>
+      <div className={`${styles.title} ${color === "black" ? styles.titleOverflowBlack : styles.titleOverflowDay}`}>
         <h2>Antonio.jar</h2>
       </div>
-      <div className={color === "black" ? styles.nav : styles.navBlack}>
+      <div className={`${styles.nav} ${color === "black" ? styles.navBlack : styles.navDay}` }>
         <ul>
           <li>Blog</li>
           <li>Courses</li>
@@ -79,7 +79,7 @@ export default function Header({ color, setColor }) {
         </div>
       </div>
      
-      <div className={ nav }>
+      <div className={ `${nav} ${color === "black" ? styles.isNigth : styles.isDay}` }>
         <ul>
           <li>Blog</li>
           <li>Courses</li>

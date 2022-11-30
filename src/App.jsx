@@ -10,7 +10,7 @@ function App() {
     <Layout color={color}>
       <Wrapper>
         <Header color={color} setColor={setColor}></Header>
-        <Footer></Footer>
+        <Footer color={color}></Footer>
       </Wrapper>
     </Layout>
   );
