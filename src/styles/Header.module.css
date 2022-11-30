@@ -6,7 +6,7 @@
   font-family: montseBold;
   color: #eff0ff;
   width: 100%;
-  height: 150px;
+  height: 135px;
   display: flex;
   justify-content: space-between;
 }
@@ -14,7 +14,7 @@
   font-family: montseBold;
   color: #3d3e44;
   width: 100%;
-  height: 150px;
+  height: 135px;
   display: flex;
   justify-content: space-between;
 }
@@ -34,13 +34,15 @@
   list-style: none;
   justify-content: center;
   align-items: center;
-  width: 800px;
+  
+  width: 700px;
+  
 }
 .nav ul li {
   cursor: pointer;
   font-size: 1.1rem;
-  padding: 20px;
-  margin: 5px;
+  padding: 18px;
+margin: 0;
   transition: color 0.3s ease;
 }
 .nav ul li:before {
@@ -70,13 +72,14 @@
   list-style: none;
   justify-content: center;
   align-items: center;
-  width: 800px;
+  width: 700px;
+  
 }
 .navBlack ul li {
   cursor: pointer;
   font-size: 1.1rem;
-  padding: 20px;
-  margin: 5px;
+  padding: 18px;
+  margin: 0px;
   transition: color 0.3s ease;
 }
 .navBlack ul li:before {
@@ -96,13 +99,49 @@
 .navBlack ul li:hover:before {
   max-width: 200px;
 }
+/**/
 
+.burguerNavBlack{
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  right: 0;
+  top: 135px;
+  background-color: red;
+  width: 100%;
+
+}
+.navNone{
+  display: none;
+}
+.burguerNavBlack ul{
+  overflow-x: hidden;
+  display: -webkit-box;
+  scroll-behavior: smooth;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.burguerNavBlack ul li{
+  padding: 40px;
+  cursor: pointer;
+  width: 100%;
+  background-color: #3d3e44;
+}
+.burguerNavBlack ul li:hover{
+  background-color: #232325;
+  transition: background .3s ease;
+}
 .buttons {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 200px;
+  width: 150px;
+  min-width: 120px;
 }
+
 
 .dayOrNight {
   display: flex;
@@ -222,4 +261,193 @@
   
   transform: rotate(300deg);
   transition: transform 10s ease;
+}
+
+
+/* Burguer button */
+
+.containerBtn {
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  box-shadow: 0 0 0 2px #cecfda67;
+  width: 3.3rem;
+  height: 3.3rem;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  display: none;
+  
+}
+.containerBtn:hover {
+  box-shadow: 0 0 0 2px #cecfdaf8;
+}
+
+.containerBtnDay {
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  box-shadow: 0 0 0 2px rgba(131, 131, 134, 0.404);
+  width: 3.3rem;
+  height: 3.3rem;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  display: none;
+  
+}
+.containerBtnDay span{
+  color: #1f1f20e3;
+  background-color: #1f1f20e3;;
+}
+.containerBtnDay:hover {
+  box-shadow: 0 0 0 2px #1f1f20e3;
+}
+
+.btn {
+  /*display: none;*/
+  width: 25px;
+  cursor: pointer;
+}
+span {
+  display: block;
+  width: 100%;
+  padding: 1px;
+  box-shadow: 0 1px 1px 0 rgba(153, 153, 153, 0.3);
+  border-radius: 3px;
+  height: 0;
+  background-color: #e2e3f167;
+  transition: all 0.3s;
+  position: relative;
+}
+span + span {
+  margin-top: 5px;
+}
+.active span:nth-child(1) {
+  
+  animation: ease 0.5s top forwards;
+}
+.notActive span:nth-child(1) {
+  animation: ease 0.5s top-2 forwards;
+
+}
+.notActive span:nth-child(2) {
+  animation: ease 0.5s scaled-2 forwards;
+
+  box-shadow: inset 0 0 3px 0 red7;
+}
+.notActive span:nth-child(3) {
+  animation: ease 0.5s bottom-2 forwards;
+ 
+}
+
+.active span:nth-child(2) {
+  animation: ease 0.5s scaled forwards;
+  
+}
+
+.active span:nth-child(3) {
+  animation: ease 0.5s bottom forwards;
+  
+  box-shadow: inset 0 0 3px 0 #cecfda67;
+}
+@keyframes top {
+  0% {
+    top: 0;
+    transform: rotate(0);
+  }
+  50% {
+    top: 8px;
+    transform: rotate(0);
+  }
+  100% {
+   
+    top:8px;
+    transform: rotate(45deg);
+  }
+}
+@keyframes top-2 {
+  0% {
+    top: 5px;
+    transform: rotate(45deg);
+  }
+  50% {
+    top: 5px;
+    transform: rotate(0);
+  }
+  100% {
+    top: 0;
+    transform: rotate(0);
+  }
+}
+@keyframes bottom {
+  0% {
+    bottom: 5px;
+    transform: rotate(0);
+  }
+  50% {
+    bottom: 5px;
+    transform: rotate(0);
+  }
+  100% {
+    bottom: 6px;
+    transform: rotate(135deg);
+  }
+}
+@keyframes bottom-2 {
+  0% {
+    bottom: 5px;
+    transform: rotate(135deg);
+  }
+  50% {
+    bottom: 5px;
+    transform: rotate(0);
+  }
+  100% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+}
+@keyframes scaled {
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes scaled-2 {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .burguerNavBlack{
+    display: flex;
+  }
+  
+  .nav{
+    display: none;
+  }
+  .navBlack{
+    display: none;
+  }
+  .iconDayOrNigth{
+    display: none;
+  
+  }
+  .containerBtn{
+    display: flex;
+  }
+  .containerBtnDay{
+    display: flex;
+  }
+
 }
