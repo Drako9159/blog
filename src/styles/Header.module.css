@@ -2,33 +2,31 @@
   font-family: montseBold;
   src: url("../assets/Montserrat-Medium.ttf");
 }
+/* Container */
 .container {
   font-family: montseBold;
+  width: 100%;
+  height: 135px;
+  display: flex;
+  justify-content: space-between;
+}
+.containerDay {
   color: #eff0ff;
-  width: 100%;
-  height: 135px;
-  display: flex;
-  justify-content: space-between;
 }
-.containerWhite {
-  font-family: montseBold;
+.containerNight {
   color: #3d3e44;
-  width: 100%;
-  height: 135px;
-  display: flex;
-  justify-content: space-between;
 }
-
+/* Container */
+/* Title */
 .title {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.title h2{
+.title h2 {
   cursor: pointer;
   padding: 18px;
   margin: 0;
-  
 }
 .title h2:before {
   content: "";
@@ -44,21 +42,22 @@
 .title h2:hover:before {
   max-width: 200px;
 }
-.titleOverflowBlack h2:before{
-  background-color: #eff0ff;
-}
-.titleOverflowDay h2:before{
+.titleDay h2:before {
   background-color: #121213;
-  
 }
-
-
-
-
-
+.titleNight h2:before {
+  background-color: #ececec;
+}
+.titleDay h2 {
+  color: #121213;
+}
+.titleNight h2 {
+  color: #ececec;
+}
+/* Title */
+/* Nav Desktop */
 .nav ul {
   display: flex;
-  color: #cecfda;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -68,13 +67,12 @@
   width: 700px;
 }
 .nav ul li {
-  cursor: pointer;
   font-size: 1.1rem;
   padding: 18px;
   margin: 0;
   transition: color 0.3s ease;
 }
-.nav ul li:before {
+.nav .linksDesktop:before {
   content: "";
   position: relative;
   display: block;
@@ -82,49 +80,57 @@
   height: 2px;
   max-width: 0;
   transition: transform 0.3s ease;
-  background-color: #eff0ff;
+
   transition: max-width 1s cubic-bezier(0.25, 0, 0, 1);
 }
-.nav ul li:hover {
-  color: #eff0ff;
-}
-.nav ul li:hover:before {
+.nav .linksDesktop:hover:before {
   max-width: 200px;
 }
-.navBlack ul li:before{
-  background-color: #eff0ff;
+.navNight .linksDesktop:before {
+  background-color: #ececec;
 }
-.navBlack ul{
-  color: #cecfda;
+.navNight .linksDesktop {
+  color: #c4c4c4;
 }
-.navBlack ul li:hover {
-  color: #eff0ff;
+.navNight .linksDesktop:hover {
+  transition: color 0.6s ease;
+  color: #ececec;
 }
-.navDay ul li:before{
-  background-color: #0a0a0a;
-  
-
+.navDay .linksDesktop:before {
+  background-color: #121213;
 }
-.navDay ul{
+.navDay .linksDesktop {
   color: #3d3e44;
 }
-
-.navDay ul li:hover {
-  color: #0a0a0a;
+.navDay .linksDesktop:hover {
+  transition: color 0.6s ease;
+  color: #121213;
+}
+/* Nav Desktop */
+.linksDesktop {
+  text-decoration: none;
+  cursor: pointer;
 }
 
-/**/
 
-.burguerNavBlack {
-  display: none;
+/* Burguer Button */
+
+
+.burguerNav {
   position: absolute;
   flex-direction: column;
   right: 0;
   top: 135px;
   width: 100%;
-}
 
-.burguerNavBlack ul {
+}
+.burguerActive {
+  display: flex;
+}
+.burguerNotActive {
+  display: none;
+}
+.burguerNav ul {
   overflow-x: hidden;
   display: -webkit-box;
   scroll-behavior: smooth;
@@ -143,39 +149,38 @@
     max-height: 0px;
   }
   50% {
-    
   }
   100% {
     opacity: 1;
     max-height: 500px;
   }
 }
-
-.isNigth ul li {
+.burguerNav .linksDesktop {
+  display: flex;
   padding: 40px;
   cursor: pointer;
   width: 100%;
-  background-color: #3d3e44;
 }
-.isNigth ul li:hover {
-  background-color: #232325;
+.burguerNavNight .linksDesktop {
+  color: #c4c4c4;
+  background-color: #27272b;
+}
+.burguerNavNight .linksDesktop:hover {
+  background-color: #636368;
   transition: background 0.3s ease;
 }
-.isDay ul li {
-  padding: 40px;
-  cursor: pointer;
-  width: 100%;
+.burguerNavDay .linksDesktop {
+  color: #3d3e44;
   background-color: #d0d1d6;
 }
-.isDay ul li:hover {
+.burguerNavDay .linksDesktop:hover {
   background-color: rgb(96, 96, 102);
   transition: background 0.3s ease;
   color: #dee1ec;
 }
-.navNone{
-  display: none !important;
-}
+/* Burguer Button */
 
+/* Buttons */
 .buttons {
   display: flex;
   align-items: center;
@@ -183,37 +188,32 @@
   width: 150px;
   min-width: 120px;
 }
-
 .dayOrNight {
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 100%;
-  box-shadow: 0 0 0 2px #cecfda67;
   width: 3.3rem;
   height: 3.3rem;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
 }
-
-.dayOrNight:hover {
-  box-shadow: 0 0 0 2px #cecfdaf8;
+.setDay{
+  box-shadow: 0 0 0 2px #9f9fa3e3;
 }
-.Night {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 100%;
+.setDay:hover {
+  box-shadow: 0 0 0 2px #29292be3;
+}
+.setNight {
   box-shadow: 0 0 0 2px #b4b4c4bd;
-  width: 3.3rem;
-  height: 3.3rem;
-  cursor: pointer;
-  transition: box-shadow 0.3s ease;
 }
+.setNight:hover {
+  box-shadow: 0 0 0 2px #ffffffbd;
+}
+/* Buttons */
 
-.Night:hover {
-  box-shadow: 0 0 0 2px #1f1f20e3;
-}
+
+
 .pickDay {
   width: 1.5rem;
   height: 1.5rem;
@@ -226,7 +226,6 @@
   width: 1.5rem;
   height: 1.5rem;
   position: absolute;
-
   animation: day 1s ease;
 }
 @keyframes day {
@@ -299,49 +298,51 @@
   mask-composite: exclude;
   --b: 4px;
   --c: linear-gradient(-40deg, black 50%, blue 0);
-
-  transform: rotate(300deg);
-  transition: transform 10s ease;
+  animation: treeCircle 30s linear infinite;
+  cursor: pointer;
+}
+@keyframes treeCircle {
+  0% {
+    transform: rotate(360deg);
+  }
+}
+.whiteGrad:hover {
+  transform: rotate(360deg);
+  transition: transform 2s linear;
 }
 
-/* Burguer button */
-
+/* Container Burguer Button */
 .containerBtn {
   margin: 0 auto;
   align-items: center;
   justify-content: center;
   border-radius: 100%;
-  box-shadow: 0 0 0 2px #cecfda67;
   width: 3.3rem;
   height: 3.3rem;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
   display: none;
 }
-.containerBtn:hover {
+.containerBtnNight:hover {
   box-shadow: 0 0 0 2px #cecfdaf8;
 }
-
+.containerBtnDay:hover {
+  box-shadow: 0 0 0 2px #1f1f20e3;
+}
 .containerBtnDay {
-  margin: 0 auto;
-  align-items: center;
-  justify-content: center;
-  border-radius: 100%;
   box-shadow: 0 0 0 2px rgba(131, 131, 134, 0.404);
-  width: 3.3rem;
-  height: 3.3rem;
-  cursor: pointer;
-  transition: box-shadow 0.3s ease;
-  display: none;
+}
+.containerBtnNight {
+  box-shadow: 0 0 0 2px rgba(230, 230, 230, 0.404);
 }
 .containerBtnDay span {
   color: #1f1f20e3;
   background-color: #1f1f20e3;
 }
-.containerBtnDay:hover {
-  box-shadow: 0 0 0 2px #1f1f20e3;
+.containerBtnNight span {
+  color: #1f1f20e3;
+  background-color: #d3d3d3e3;
 }
-
 .btn {
   /*display: none;*/
   width: 25px;
@@ -369,20 +370,16 @@ span + span {
 }
 .notActive span:nth-child(2) {
   animation: ease 0.5s scaled-2 forwards;
-
   box-shadow: inset 0 0 3px 0 red7;
 }
 .notActive span:nth-child(3) {
   animation: ease 0.5s bottom-2 forwards;
 }
-
 .active span:nth-child(2) {
   animation: ease 0.5s scaled forwards;
 }
-
 .active span:nth-child(3) {
   animation: ease 0.5s bottom forwards;
-
   box-shadow: inset 0 0 3px 0 #cecfda67;
 }
 @keyframes top {
@@ -460,17 +457,10 @@ span + span {
     transform: scale(1);
   }
 }
-
+/* Container Burguer Button */
 @media screen and (max-width: 1000px) {
-  .burguerNavBlack {
-    display: flex;
-  }
   
-
   .nav {
-    display: none;
-  }
-  .navBlack {
     display: none;
   }
   .iconDayOrNigth {
@@ -479,7 +469,10 @@ span + span {
   .containerBtn {
     display: flex;
   }
-  .containerBtnDay {
-    display: flex;
+ 
+}
+@media screen and (min-width: 1000px) {
+  .burguerNav{
+    display: none;
   }
 }

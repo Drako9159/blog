@@ -2,70 +2,71 @@ import styles from "../styles/Header.module.css";
 import pickDay from "../assets/icons/sunAll.png";
 import pickNight from "../assets/icons/sunWhite.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header({ color, setColor }) {
-  const [night, setNight] = useState(true);
   const [btn, setBtn] = useState(styles.notActive);
-  const [nav, setNav] = useState(styles.navNone);
+  const [isActiveButton, setActiveButton] = useState(styles.burguerNotActive);
+
 
   function handleClickBurguer(e) {
-    if (btn === styles.notActive) {
-      setNav(styles.burguerNavBlack);
+    if (isActiveButton === styles.burguerNotActive) {
+      setActiveButton(styles.burguerActive);
       setBtn(styles.active);
     } else {
-      setNav(styles.navNone);
+      setActiveButton(styles.burguerNotActive);
       setBtn(styles.notActive);
     }
   }
 
   function handleClick() {
-    if (color === "black") {
-      setColor("white");
+    if (color === "night") {
+      setColor("day");
     } else {
-      setColor("black");
+      setColor("night");
     }
   }
 
   return (
     <div
-      className={color === "black" ? styles.container : styles.containerWhite}
+      className={`${styles.container} ${color === "night" ? styles.containerNight : styles.containerDay}`}
     >
-      <div className={`${styles.title} ${color === "black" ? styles.titleOverflowBlack : styles.titleOverflowDay}`}>
+      <div className={`${styles.title} ${color === "night" ? styles.titleNight : styles.titleDay}`}>
         <h2>Antonio.jar</h2>
       </div>
-      <div className={`${styles.nav} ${color === "black" ? styles.navBlack : styles.navDay}` }>
+      <div className={`${styles.nav} ${color === "night" ? styles.navNight : styles.navDay}` }>
         <ul>
-          <li>Blog</li>
-          <li>Courses</li>
-          <li>Discord</li>
-          <li>Chats</li>
-          <li>Calls</li>
-          <li>Workshops</li>
-          <li>About</li>
+          <li><Link className={styles.linksDesktop} to="/blog">Blog</Link></li>
+          <li><Link className={styles.linksDesktop} to="/blog">Courses</Link></li>
+          <li><Link className={styles.linksDesktop} to="/blog">Discord</Link></li>
+          <li><Link className={styles.linksDesktop} to="/blog">Chats</Link></li>
+          <li><Link className={styles.linksDesktop} to="/blog">Calls</Link></li>
+          <li><Link className={styles.linksDesktop} to="/blog">Workshops</Link></li>
+          <li><Link className={styles.linksDesktop} to="/blog">About</Link></li>
         </ul>
       </div>
       <div className={styles.buttons}>
         <div className={styles.iconDayOrNigth}>
           <div
-            className={color === "black" ? styles.dayOrNight : styles.Night}
+            className={`${styles.dayOrNight} ${color === "night" ? styles.setNight : styles.setDay}`}
             onClick={handleClick}
           >
             <img
               className={
-                color === "white" ? styles.pickDay : styles.pickDayAnimation
+                color === "night" ? styles.pickDay : styles.pickDayAnimation
               }
               src={pickDay}
             ></img>
             <img
               className={
-                color === "black" ? styles.pickNight : styles.pickNightAnimation
+                color === "day" ? styles.pickNight : styles.pickNightAnimation
               }
               src={pickNight}
             ></img>
           </div>
         </div>
 
-        <div className={ color === "black" ? styles.containerBtn : styles.containerBtnDay } onClick={(e) => handleClickBurguer(e)}>
+        <div className={ `${styles.containerBtn} ${color === "night" ? styles.containerBtnNight : styles.containerBtnDay}` } onClick={(e) => handleClickBurguer(e)}>
         <div className={`${styles.btn} ${btn}`} >
           <span></span>
           <span></span>
@@ -79,15 +80,15 @@ export default function Header({ color, setColor }) {
         </div>
       </div>
      
-      <div className={ `${nav} ${color === "black" ? styles.isNigth : styles.isDay}` }>
-        <ul>
-          <li>Blog</li>
-          <li>Courses</li>
-          <li>Discord</li>
-          <li>Chats</li>
-          <li>Calls</li>
-          <li>Workshops</li>
-          <li>About</li>
+      <div className={ `${styles.burguerNav} ${isActiveButton} ${color === "night" ? styles.burguerNavNight : styles.burguerNavDay}` }>
+      <ul>
+          <li><Link className={styles.linksDesktop} to="/blog">Blog</Link></li>
+          <li><Link className={styles.linksDesktop} to="/blog">Courses</Link></li>
+          <li><Link className={styles.linksDesktop} to="/blog">Discord</Link></li>
+          <li><Link className={styles.linksDesktop} to="/blog">Chats</Link></li>
+          <li><Link className={styles.linksDesktop} to="/blog">Calls</Link></li>
+          <li><Link className={styles.linksDesktop} to="/blog">Workshops</Link></li>
+          <li><Link className={styles.linksDesktop} to="/blog">About</Link></li>
         </ul>
       </div>
       

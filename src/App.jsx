@@ -3,9 +3,10 @@ import Layout from "./components/Layout";
 import Wrapper from "./components/Wrapper";
 import Footer from "./components/Footer";
 import { useState } from "react";
+ 
 
 function App() {
-  const [color, setColor] = useState("black");
+  const [color, setColor] = useState("day");
   return (
     <Layout color={color}>
       <Wrapper>
