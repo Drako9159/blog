@@ -32,17 +32,18 @@ export default function Header({ color, setColor }) {
       className={`${styles.container} ${color === "night" ? styles.containerNight : styles.containerDay}`}
     >
       <div className={`${styles.title} ${color === "night" ? styles.titleNight : styles.titleDay}`}>
-        <h2>Antonio.jar</h2>
+        
+        <Link className={styles.linkTitle} to="/">Antonio.jar</Link>
       </div>
       <div className={`${styles.nav} ${color === "night" ? styles.navNight : styles.navDay}` }>
         <ul>
           <li><Link className={styles.linksDesktop} to="/blog">Blog</Link></li>
-          <li><Link className={styles.linksDesktop} to="/blog">Courses</Link></li>
-          <li><Link className={styles.linksDesktop} to="/blog">Discord</Link></li>
-          <li><Link className={styles.linksDesktop} to="/blog">Chats</Link></li>
-          <li><Link className={styles.linksDesktop} to="/blog">Calls</Link></li>
-          <li><Link className={styles.linksDesktop} to="/blog">Workshops</Link></li>
-          <li><Link className={styles.linksDesktop} to="/blog">About</Link></li>
+          <li><Link className={styles.linksDesktop} to="/courses">Courses</Link></li>
+          <li><Link className={styles.linksDesktop} to="/discord">Discord</Link></li>
+          <li><Link className={styles.linksDesktop} to="/chats">Chats</Link></li>
+          <li><Link className={styles.linksDesktop} to="/calls">Calls</Link></li>
+          <li><Link className={styles.linksDesktop} to="/workshops">Workshops</Link></li>
+          <li><Link className={styles.linksDesktop} to="/about">About</Link></li>
         </ul>
       </div>
       <div className={styles.buttons}>
@@ -83,15 +84,14 @@ export default function Header({ color, setColor }) {
       <div className={ `${styles.burguerNav} ${isActiveButton} ${color === "night" ? styles.burguerNavNight : styles.burguerNavDay}` }>
       <ul>
           <li><Link className={styles.linksDesktop} to="/blog">Blog</Link></li>
-          <li><Link className={styles.linksDesktop} to="/blog">Courses</Link></li>
-          <li><Link className={styles.linksDesktop} to="/blog">Discord</Link></li>
-          <li><Link className={styles.linksDesktop} to="/blog">Chats</Link></li>
-          <li><Link className={styles.linksDesktop} to="/blog">Calls</Link></li>
-          <li><Link className={styles.linksDesktop} to="/blog">Workshops</Link></li>
-          <li><Link className={styles.linksDesktop} to="/blog">About</Link></li>
+          <li><Link className={styles.linksDesktop} to="/courses">Courses</Link></li>
+          <li><Link className={styles.linksDesktop} to="/discord">Discord</Link></li>
+          <li><Link className={styles.linksDesktop} to="/chats">Chats</Link></li>
+          <li><Link className={styles.linksDesktop} to="/calls">Calls</Link></li>
+          <li><Link className={styles.linksDesktop} to="/workshops">Workshops</Link></li>
+          <li><Link className={styles.linksDesktop} to="/about">About</Link></li>
         </ul>
       </div>
-      
       
     </div>
   );

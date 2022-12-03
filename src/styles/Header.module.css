@@ -23,12 +23,21 @@
   align-items: center;
   justify-content: center;
 }
-.title h2 {
+.title .linkTitle {
   cursor: pointer;
   padding: 18px;
   margin: 0;
+  font-size: 1.7rem;
+  text-decoration: none;
 }
-.title h2:before {
+.title .linkTitle:active{
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}
+.title .linkTitle:before {
   content: "";
   position: relative;
   display: block;
@@ -38,20 +47,19 @@
   transition: transform 0.3s ease;
   transition: max-width 1s cubic-bezier(0.25, 0, 0, 1);
 }
-
-.title h2:hover:before {
+.title .linkTitle:hover:before {
   max-width: 200px;
 }
-.titleDay h2:before {
+.titleDay .linkTitle:before {
   background-color: #121213;
 }
-.titleNight h2:before {
+.titleNight .linkTitle:before {
   background-color: #ececec;
 }
-.titleDay h2 {
+.titleDay .linkTitle {
   color: #121213;
 }
-.titleNight h2 {
+.titleNight .linkTitle {
   color: #ececec;
 }
 /* Title */
@@ -323,6 +331,7 @@
   transition: box-shadow 0.3s ease;
   display: none;
 }
+
 .containerBtnNight:hover {
   box-shadow: 0 0 0 2px #cecfdaf8;
 }

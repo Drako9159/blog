@@ -2,7 +2,10 @@ import Header from "./components/Header";
 import Layout from "./components/Layout";
 import Wrapper from "./components/Wrapper";
 import Footer from "./components/Footer";
+import { Routes, Route } from "react-router-dom"
 import { useState } from "react";
+import Start from "./views/start/Start"
+import About from "./views/about/About"
  
 
 function App() {
@@ -10,8 +13,12 @@ function App() {
   return (
     <Layout color={color}>
       <Wrapper>
-        <Header color={color} setColor={setColor}></Header>
-        <Footer color={color}></Footer>
+      <Routes>
+
+        <Route path="/" element={<Start color={color} setColor={setColor}/>}></Route>
+        <Route path="/about" element={<About color={color} setColor={setColor}/>}></Route>
+        
+      </Routes>
       </Wrapper>
     </Layout>
   );
