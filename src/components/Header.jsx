@@ -8,7 +8,6 @@ export default function Header({ color, setColor }) {
   const [btn, setBtn] = useState(styles.notActive);
   const [isActiveButton, setActiveButton] = useState(styles.burguerNotActive);
 
-
   function handleClickBurguer(e) {
     if (isActiveButton === styles.burguerNotActive) {
       setActiveButton(styles.burguerActive);
@@ -29,27 +28,68 @@ export default function Header({ color, setColor }) {
 
   return (
     <div
-      className={`${styles.container} ${color === "night" ? styles.containerNight : styles.containerDay}`}
+      className={`${styles.container} ${
+        color === "night" ? styles.containerNight : styles.containerDay
+      }`}
     >
-      <div className={`${styles.title} ${color === "night" ? styles.titleNight : styles.titleDay}`}>
-        
-        <Link className={styles.linkTitle} to="/">Antonio.jar</Link>
+      <div
+        className={`${styles.title} ${
+          color === "night" ? styles.titleNight : styles.titleDay
+        }`}
+      >
+        <Link className={styles.linkTitle} to="/">
+          Antonio.jar
+        </Link>
       </div>
-      <div className={`${styles.nav} ${color === "night" ? styles.navNight : styles.navDay}` }>
+      <div
+        className={`${styles.nav} ${
+          color === "night" ? styles.navNight : styles.navDay
+        }`}
+      >
         <ul>
-          <li><Link className={styles.linksDesktop} to="/blog">Blog</Link></li>
-          <li><Link className={styles.linksDesktop} to="/courses">Courses</Link></li>
-          <li><Link className={styles.linksDesktop} to="/discord">Discord</Link></li>
-          <li><Link className={styles.linksDesktop} to="/chats">Chats</Link></li>
-          <li><Link className={styles.linksDesktop} to="/calls">Calls</Link></li>
-          <li><Link className={styles.linksDesktop} to="/workshops">Workshops</Link></li>
-          <li><Link className={styles.linksDesktop} to="/about">About</Link></li>
+          <li>
+            <Link className={styles.linksDesktop} to="/blog">
+              Blog
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.linksDesktop} to="/courses">
+              Courses
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.linksDesktop} to="/discord">
+              Discord
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.linksDesktop} to="/chats">
+              Chats
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.linksDesktop} to="/calls">
+              Calls
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.linksDesktop} to="/workshops">
+              Workshops
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.linksDesktop} to="/about">
+              About
+            </Link>
+          </li>
         </ul>
       </div>
       <div className={styles.buttons}>
         <div className={styles.iconDayOrNigth}>
           <div
-            className={`${styles.dayOrNight} ${color === "night" ? styles.setNight : styles.setDay}`}
+            className={`${styles.dayOrNight} ${
+              color === "night" ? styles.setNight : styles.setDay
+            }`}
             onClick={handleClick}
           >
             <img
@@ -67,35 +107,100 @@ export default function Header({ color, setColor }) {
           </div>
         </div>
 
-        <div className={ `${styles.containerBtn} ${color === "night" ? styles.containerBtnNight : styles.containerBtnDay}` } onClick={(e) => handleClickBurguer(e)}>
-        <div className={`${styles.btn} ${btn}`} >
-          <span></span>
-          <span></span>
-          <span></span>  
+        <div
+          className={`${styles.containerBtn} ${
+            color === "night"
+              ? styles.containerBtnNight
+              : styles.containerBtnDay
+          }`}
+          onClick={(e) => handleClickBurguer(e)}
+        >
+          <div className={`${styles.btn} ${btn}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
-      </div>
-      
 
         <div className={styles.icon}>
-          <div className={styles.whiteGrad}></div>
-        </div>
-
         
+          <div className={styles.whiteGrad}>
+            
+          </div>
+        </div>
       </div>
 
-     
-      <div className={ `${styles.burguerNav} ${isActiveButton} ${color === "night" ? styles.burguerNavNight : styles.burguerNavDay}` }>
-      <ul>
-          <li><Link className={styles.linksDesktop} to="/blog">Blog</Link></li>
-          <li><Link className={styles.linksDesktop} to="/courses">Courses</Link></li>
-          <li><Link className={styles.linksDesktop} to="/discord">Discord</Link></li>
-          <li><Link className={styles.linksDesktop} to="/chats">Chats</Link></li>
-          <li><Link className={styles.linksDesktop} to="/calls">Calls</Link></li>
-          <li><Link className={styles.linksDesktop} to="/workshops">Workshops</Link></li>
-          <li><Link className={styles.linksDesktop} to="/about">About</Link></li>
+      <div
+        className={`${styles.burguerNav} ${isActiveButton} ${
+          color === "night" ? styles.burguerNavNight : styles.burguerNavDay
+        }`}
+      >
+        <ul>
+        <li>
+          <Link className={styles.linksDesktop}>
+          <div className={styles.iconDayOrNigthMobile}>
+          <div
+            className={`${styles.dayOrNight} ${
+              color === "night" ? styles.setNight : styles.setDay
+            }`}
+            onClick={handleClick}
+          >
+            <img
+              className={
+                color === "night" ? styles.pickDay : styles.pickDayAnimation
+              }
+              src={pickDay}
+            ></img>
+            <img
+              className={
+                color === "day" ? styles.pickNight : styles.pickNightAnimation
+              }
+              src={pickNight}
+            ></img>
+          </div>
+        </div>
+          </Link>
+        </li>
+   
+        
+          <li>
+            <Link className={styles.linksDesktop} to="/blog">
+              Blog
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.linksDesktop} to="/courses">
+              Courses
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.linksDesktop} to="/discord">
+              Discord
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.linksDesktop} to="/chats">
+              Chats
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.linksDesktop} to="/calls">
+              Calls
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.linksDesktop} to="/workshops">
+              Workshops
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.linksDesktop} to="/about">
+              About
+            </Link>
+          </li>
+
         </ul>
       </div>
-      
     </div>
   );
 }

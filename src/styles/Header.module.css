@@ -6,9 +6,10 @@
 .container {
   font-family: montseBold;
   width: 100%;
-  height: 135px;
+  min-height: 135px;
   display: flex;
   justify-content: space-between;
+  
 }
 .containerDay {
   color: #eff0ff;
@@ -170,7 +171,7 @@
 }
 .burguerNavNight .linksDesktop {
   color: #c4c4c4;
-  background-color: #27272b;
+  background-color: #4e4e53;
 }
 .burguerNavNight .linksDesktop:hover {
   background-color: #636368;
@@ -205,6 +206,7 @@
   cursor: pointer;
   transition: box-shadow 0.3s ease;
 }
+
 .setDay {
   box-shadow: 0 0 0 2px #9f9fa3e3;
 }
@@ -222,16 +224,17 @@
 .pickDay {
   width: 1.5rem;
   height: 1.5rem;
-  position: absolute;
-  transform: translateX(50px);
+  position: relative;
   opacity: 0;
-  visibility: hidden;
+  
 }
 .pickDayAnimation {
   width: 1.5rem;
   height: 1.5rem;
-  position: absolute;
+  position: relative;
   animation: day 1s ease;
+  
+  transform: translateX(12px);
 }
 @keyframes day {
   0% {
@@ -239,27 +242,32 @@
     opacity: 0;
   }
   5% {
+    
+    transform: translateX(0px);
+    transform: rotate(-40deg);
     opacity: 0;
   }
   100% {
-    transform: translateX(0px);
+    
     opacity: 1;
   }
 }
 .pickNight {
   width: 1.5rem;
   height: 1.5rem;
-  position: absolute;
-  transform: translateX(-50px);
+  position: relative;
+  
+ 
   opacity: 0;
   visibility: hidden;
 }
 .pickNightAnimation {
   width: 1.5rem;
   height: 1.5rem;
-  position: absolute;
-
+  position: relative;
   animation: night 1s ease;
+  
+  transform: translateX(-12px);
 }
 @keyframes night {
   0% {
@@ -267,19 +275,29 @@
     opacity: 0;
   }
   5% {
+    transform: translateX(0px);
+    transform: rotate(40deg);
     opacity: 0;
   }
   100% {
-    transform: translateX(0px);
+    
+    
     opacity: 1;
   }
 }
+/* Circle Animation */
 .icon {
   border-radius: 100%;
   box-shadow: 0 0 0 2px #cecfda67;
   width: 3.3rem;
   height: 3.3rem;
 }
+
+
+.whiteGrad{
+  
+}
+/*
 .whiteGrad {
   --b: 5px;
   color: #313149;
@@ -289,20 +307,20 @@
   position: relative;
   z-index: 0;
 }
+
 .whiteGrad:before {
   content: "";
   position: absolute;
-  z-index: -1;
+
   inset: 0;
-  background: var(--c, linear-gradient(to right, #9c20aa, #6e6c6d));
+  background: var(--a);
   padding: var(--b);
   border-radius: 50%;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  --b: 4px;
-  --c: linear-gradient(-40deg, black 50%, blue 0);
+  --a: linear-gradient(-40deg, rgb(6, 223, 223) 50%, rgb(0, 255, 34) 0) ;
+  --f: linear-gradient(-50deg, black 50%, red 50%);
+  --g: linear-gradient(0deg, black 50%, lightgray 50%)
+  
   animation: treeCircle 30s linear infinite;
   cursor: pointer;
 }
@@ -315,7 +333,8 @@
   transform: rotate(360deg);
   transition: transform 2s linear;
 }
-
+*/
+/* Circle Animation */
 /* Container Burguer Button */
 .containerBtn {
   margin: 0 auto;
@@ -324,6 +343,7 @@
   border-radius: 100%;
   width: 3.3rem;
   height: 3.3rem;
+ 
   cursor: pointer;
   transition: box-shadow 0.3s ease;
   display: none;
@@ -484,5 +504,8 @@ span + span {
 @media screen and (min-width: 1000px) {
   .burguerNav {
     display: none;
+  }
+  .iconDayOrNigthMobile{
+    display: flex;
   }
 }

@@ -24,7 +24,7 @@ export default function Start({ color, setColor }) {
 
           <Link className={styles.button3Card1} to="/">
             <img src={arrowDown} className={styles.arrowDown}></img>
-            Learn more about Antonio
+            Learn more about Antonio.jar
           </Link>
         </div>
 
