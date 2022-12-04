@@ -79,7 +79,10 @@ export default function Header({ color, setColor }) {
         <div className={styles.icon}>
           <div className={styles.whiteGrad}></div>
         </div>
+
+        
       </div>
+
      
       <div className={ `${styles.burguerNav} ${isActiveButton} ${color === "night" ? styles.burguerNavNight : styles.burguerNavDay}` }>
       <ul>

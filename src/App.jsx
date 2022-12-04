@@ -1,7 +1,5 @@
-import Header from "./components/Header";
 import Layout from "./components/Layout";
 import Wrapper from "./components/Wrapper";
-import Footer from "./components/Footer";
 import { Routes, Route } from "react-router-dom"
 import { useState } from "react";
 import Start from "./views/start/Start"
