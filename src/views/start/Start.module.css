@@ -4,7 +4,7 @@
 }
 /* Card1 */
 .card1 {
-    -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
   display: flex;
   width: 90%;
   background-color: transparent;
@@ -17,7 +17,6 @@
   justify-content: center;
   flex-direction: column;
   font-size: 1.3rem;
-  
 }
 .card1Left h2 {
   width: 70%;
@@ -78,62 +77,75 @@
 .card1Left .button3Card1 {
   text-decoration: none;
   padding: 20px;
-  color: #121213;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 60%;
   max-width: 270px;
-  
 }
 .arrowDown {
   width: 26px;
-  box-shadow: 0 0 2px 0 #121213;
   padding: 14px;
   border-radius: 100%;
   transition: box-shadow 0.6s ease;
+  box-shadow: 0 0 0 2px #80808070;
   margin: 0 15px 0 0;
 }
-
-.card1Left .button3Card1:hover > .arrowDown {
-  box-shadow: 0 0 0 2px #121213;
-  position: relative;
-  transform-origin: 50%;
-  stroke-dashoffset: 50%;
+.button3Card1Night{
+    color: #ececec;
 }
+.button3Card1Day{
+    color: #121213;
+}
+.button3Card1Night:hover > .arrowDown {
+    box-shadow: 0 0 0 2px #ececec;
+  }
+.button3Card1Day:hover > .arrowDown {
+  box-shadow: 0 0 0 2px #121213;
+}
+
+
+
 
 .card1Right {
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 .pickCard1 {
   width: 100%;
-  
-
+ 
+  animation: pickCard1 2s ease;
 }
+@keyframes pickCard1 {
+  0% {
+    opacity: 0;
+    
+  }
+  100% {
+    opacity: 1;
+   
+  }
+}
+
 /* Card1 */
 @media screen and (max-width: 1000px) {
-    .card1{
-        flex-direction: column-reverse;
-        
-        
-    }
-    .card1Left{
-        align-items: center;
-        width: 100%;
-        margin: 0;
-    }
-    .card1Left h2{
-        width: 100%;
-    }
-    
-    .card1Right{
-        width: 100%;
-    }
-    
+  .card1 {
+    flex-direction: column-reverse;
+  }
+  .card1Left {
+    align-items: center;
+    width: 100%;
+    margin: 0;
+  }
+  .card1Left h2 {
+    width: 100%;
+  }
+
+  .card1Right {
+    width: 100%;
+  }
 }
 @media screen and (min-width: 1000px) {
 }

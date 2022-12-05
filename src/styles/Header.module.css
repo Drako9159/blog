@@ -9,6 +9,7 @@
   min-height: 135px;
   display: flex;
   justify-content: space-between;
+  -webkit-tap-highlight-color: transparent;
   
 }
 .containerDay {
@@ -256,8 +257,6 @@
   width: 1.5rem;
   height: 1.5rem;
   position: relative;
-  
- 
   opacity: 0;
   visibility: hidden;
 }
@@ -287,16 +286,29 @@
 }
 /* Circle Animation */
 .icon {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon .svg{
+  width: 3.7rem;
+  height: 3.7rem;
+  cursor: pointer;
+  animation: iconSvg 10s linear infinite;
+  box-shadow: 0 0 0 2px rgba(131, 131, 134, 0.404);
   border-radius: 100%;
-  box-shadow: 0 0 0 2px #cecfda67;
-  width: 3.3rem;
-  height: 3.3rem;
+}
+
+@keyframes iconSvg {
+  0%{ transform: rotate(360deg); }
 }
 
 
-.whiteGrad{
-  
-}
+
+
+
+
 /*
 .whiteGrad {
   --b: 5px;
@@ -357,10 +369,8 @@
 }
 .containerBtnDay:hover {
   box-shadow: 0 0 0 2px #1f1f20e3;
-  
 }
 .containerBtnDay {
-  
   box-shadow: 0 0 0 2px rgba(131, 131, 134, 0.404);
 }
 .containerBtnNight {

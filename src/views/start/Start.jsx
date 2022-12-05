@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import styles from "./Start.module.css";
-import pickCard1 from "./images/moon.png";
+import pickCard1Night from "./images/moon.png";
+import pickCard1Day from "./images/dino.png";
 import arrowDown from "./images/arrowDown.png";
+
 
 export default function Start({ color, setColor }) {
   return (
@@ -22,14 +24,14 @@ export default function Start({ color, setColor }) {
             Take a course
           </Link>
 
-          <Link className={styles.button3Card1} to="/">
+          <Link className={`${styles.button3Card1} ${color === "night" ? styles.button3Card1Night : styles.button3Card1Day}`} to="/">
             <img src={arrowDown} className={styles.arrowDown}></img>
             Learn more about Antonio.jar
           </Link>
         </div>
 
         <div className={styles.card1Right}>
-          <img className={styles.pickCard1} src={pickCard1}></img>
+          <img className={styles.pickCard1} src={color === "night" ? pickCard1Night : pickCard1Day}></img>
         </div>
       </div>
 

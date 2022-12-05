@@ -5,9 +5,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Header({ color, setColor }) {
+ 
   const [btn, setBtn] = useState(styles.notActive);
   const [isActiveButton, setActiveButton] = useState(styles.burguerNotActive);
 
+ 
+  
   function handleClickBurguer(e) {
     if (isActiveButton === styles.burguerNotActive) {
       setActiveButton(styles.burguerActive);
@@ -26,6 +29,7 @@ export default function Header({ color, setColor }) {
     }
   }
 
+  
   return (
     <div
       className={`${styles.container} ${
@@ -48,37 +52,37 @@ export default function Header({ color, setColor }) {
       >
         <ul>
           <li>
-            <Link className={styles.linksDesktop} to="/blog">
+            <Link className={styles.linksDesktop} to="/">
               Blog
             </Link>
           </li>
           <li>
-            <Link className={styles.linksDesktop} to="/courses">
+            <Link className={styles.linksDesktop} to="/">
               Courses
             </Link>
           </li>
           <li>
-            <Link className={styles.linksDesktop} to="/discord">
+            <Link className={styles.linksDesktop} to="/">
               Discord
             </Link>
           </li>
           <li>
-            <Link className={styles.linksDesktop} to="/chats">
+            <Link className={styles.linksDesktop} to="/">
               Chats
             </Link>
           </li>
           <li>
-            <Link className={styles.linksDesktop} to="/calls">
+            <Link className={styles.linksDesktop} to="/">
               Calls
             </Link>
           </li>
           <li>
-            <Link className={styles.linksDesktop} to="/workshops">
+            <Link className={styles.linksDesktop} to="/">
               Workshops
             </Link>
           </li>
           <li>
-            <Link className={styles.linksDesktop} to="/about">
+            <Link className={styles.linksDesktop} to="/">
               About
             </Link>
           </li>
@@ -123,10 +127,28 @@ export default function Header({ color, setColor }) {
         </div>
 
         <div className={styles.icon}>
-        
-          <div className={styles.whiteGrad}>
-            
-          </div>
+          
+            <svg className={styles.svg} viewBox={"0 0 10 10"}>
+              <defs>
+              <circle id={"circle"} cx={5} cy={5} r="4" fill={"transparent"} strokeWidth={"0.5"}></circle>
+              </defs>
+              <use
+                xlinkHref={"#circle"}
+                stroke={`${color === "night" ? "#FF6708" : "#812567" }`}
+                strokeDasharray={"0,2.09,8.38,30"}
+              />
+              <use
+                xlinkHref={"#circle"}
+                stroke="#0aa8cfbd"
+                strokeDasharray={"0,10.47,8.38,30"}
+              />
+              <use
+                xlinkHref={"#circle"}
+                stroke="#df2007bd"
+                strokeDasharray={"2.09,16.75,6.3"}
+              />
+            </svg>
+          
         </div>
       </div>
 
@@ -136,69 +158,71 @@ export default function Header({ color, setColor }) {
         }`}
       >
         <ul>
-        <li>
-          <Link className={styles.linksDesktop}>
-          <div className={styles.iconDayOrNigthMobile}>
-          <div
-            className={`${styles.dayOrNight} ${
-              color === "night" ? styles.setNight : styles.setDay
-            }`}
-            onClick={handleClick}
-          >
-            <img
-              className={
-                color === "night" ? styles.pickDay : styles.pickDayAnimation
-              }
-              src={pickDay}
-            ></img>
-            <img
-              className={
-                color === "day" ? styles.pickNight : styles.pickNightAnimation
-              }
-              src={pickNight}
-            ></img>
-          </div>
-        </div>
-          </Link>
-        </li>
-   
-        
           <li>
-            <Link className={styles.linksDesktop} to="/blog">
+            <Link className={styles.linksDesktop}>
+              <div className={styles.iconDayOrNigthMobile}>
+                <div
+                  className={`${styles.dayOrNight} ${
+                    color === "night" ? styles.setNight : styles.setDay
+                  }`}
+                  onClick={handleClick}
+                >
+                  <img
+                    className={
+                      color === "night"
+                        ? styles.pickDay
+                        : styles.pickDayAnimation
+                    }
+                    src={pickDay}
+                  ></img>
+                  <img
+                    className={
+                      color === "day"
+                        ? styles.pickNight
+                        : styles.pickNightAnimation
+                    }
+                    src={pickNight}
+                  ></img>
+                </div>
+              </div>
+            </Link>
+          </li>
+
+          <li>
+            <Link className={styles.linksDesktop} to="/">
               Blog
             </Link>
           </li>
           <li>
-            <Link className={styles.linksDesktop} to="/courses">
+            <Link className={styles.linksDesktop} to="/">
               Courses
             </Link>
           </li>
           <li>
-            <Link className={styles.linksDesktop} to="/discord">
+            <Link className={styles.linksDesktop} to="/">
               Discord
             </Link>
           </li>
           <li>
-            <Link className={styles.linksDesktop} to="/chats">
+            <Link className={styles.linksDesktop} to="/">
               Chats
             </Link>
           </li>
           <li>
-            <Link className={styles.linksDesktop} to="/calls">
+            <Link className={styles.linksDesktop} to="/">
               Calls
             </Link>
           </li>
           <li>
-            <Link className={styles.linksDesktop} to="/workshops">
+            <Link className={styles.linksDesktop} to="/">
               Workshops
             </Link>
           </li>
           <li>
-            <Link className={styles.linksDesktop} to="/about">
+            <Link className={styles.linksDesktop} to="/">
               About
             </Link>
           </li>
-
         </ul>
       </div>
     </div>
