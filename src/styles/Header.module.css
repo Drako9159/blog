@@ -10,7 +10,6 @@
   display: flex;
   justify-content: space-between;
   -webkit-tap-highlight-color: transparent;
-  
 }
 .containerDay {
   color: #eff0ff;
@@ -24,8 +23,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  
 }
 .title .linkTitle {
   cursor: pointer;
@@ -34,11 +31,7 @@
   font-size: 1.7rem;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
-  
-  
-  
 }
-
 
 .title .linkTitle:before {
   content: "";
@@ -227,14 +220,13 @@
   height: 1.5rem;
   position: relative;
   opacity: 0;
-  
 }
 .pickDayAnimation {
   width: 1.5rem;
   height: 1.5rem;
   position: relative;
   animation: day 1s ease;
-  
+
   transform: translateX(12px);
 }
 @keyframes day {
@@ -243,13 +235,11 @@
     opacity: 0;
   }
   5% {
-    
     transform: translateX(0px);
     transform: rotate(-40deg);
     opacity: 0;
   }
   100% {
-    
     opacity: 1;
   }
 }
@@ -265,7 +255,7 @@
   height: 1.5rem;
   position: relative;
   animation: night 1s ease;
-  
+
   transform: translateX(-12px);
 }
 @keyframes night {
@@ -279,19 +269,16 @@
     opacity: 0;
   }
   100% {
-    
-    
     opacity: 1;
   }
 }
 /* Circle Animation */
 .icon {
-
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.icon .svg{
+.icon .svg {
   width: 3.7rem;
   height: 3.7rem;
   cursor: pointer;
@@ -301,13 +288,10 @@
 }
 
 @keyframes iconSvg {
-  0%{ transform: rotate(360deg); }
+  0% {
+    transform: rotate(360deg);
+  }
 }
-
-
-
-
-
 
 /*
 .whiteGrad {
@@ -355,13 +339,11 @@
   border-radius: 100%;
   width: 3.3rem;
   height: 3.3rem;
- 
+
   cursor: pointer;
   transition: box-shadow 0.3s ease;
   display: none;
   -webkit-tap-highlight-color: transparent;
-
-  
 }
 
 .containerBtnNight:hover {
@@ -379,7 +361,6 @@
 .containerBtnDay span {
   color: #1f1f20e3;
   background-color: #1f1f20e3;
-  
 }
 .containerBtnNight span {
   color: #1f1f20e3;
@@ -515,7 +496,7 @@ span + span {
   .burguerNav {
     display: none;
   }
-  .iconDayOrNigthMobile{
+  .iconDayOrNigthMobile {
     display: flex;
   }
 }

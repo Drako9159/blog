@@ -5,12 +5,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Header({ color, setColor }) {
- 
   const [btn, setBtn] = useState(styles.notActive);
   const [isActiveButton, setActiveButton] = useState(styles.burguerNotActive);
 
- 
-  
   function handleClickBurguer(e) {
     if (isActiveButton === styles.burguerNotActive) {
       setActiveButton(styles.burguerActive);
@@ -29,7 +26,6 @@ export default function Header({ color, setColor }) {
     }
   }
 
-  
   return (
     <div
       className={`${styles.container} ${
@@ -127,28 +123,33 @@ export default function Header({ color, setColor }) {
         </div>
 
         <div className={styles.icon}>
-          
-            <svg className={styles.svg} viewBox={"0 0 10 10"}>
-              <defs>
-              <circle id={"circle"} cx={5} cy={5} r="4" fill={"transparent"} strokeWidth={"0.5"}></circle>
-              </defs>
-              <use
-                xlinkHref={"#circle"}
-                stroke={`${color === "night" ? "#FF6708" : "#812567" }`}
-                strokeDasharray={"0,2.09,8.38,30"}
-              />
-              <use
-                xlinkHref={"#circle"}
-                stroke="#0aa8cfbd"
-                strokeDasharray={"0,10.47,8.38,30"}
-              />
-              <use
-                xlinkHref={"#circle"}
-                stroke="#df2007bd"
-                strokeDasharray={"2.09,16.75,6.3"}
-              />
-            </svg>
-          
+          <svg className={styles.svg} viewBox={"0 0 10 10"}>
+            <defs>
+              <circle
+                id={"circle"}
+                cx={5}
+                cy={5}
+                r="4"
+                fill={"transparent"}
+                strokeWidth={"0.5"}
+              ></circle>
+            </defs>
+            <use
+              xlinkHref={"#circle"}
+              stroke={`${color === "night" ? "#FF6708" : "#812567"}`}
+              strokeDasharray={"0,2.09,8.38,30"}
+            />
+            <use
+              xlinkHref={"#circle"}
+              stroke="#0aa8cfbd"
+              strokeDasharray={"0,10.47,8.38,30"}
+            />
+            <use
+              xlinkHref={"#circle"}
+              stroke="#df2007bd"
+              strokeDasharray={"2.09,16.75,6.3"}
+            />
+          </svg>
         </div>
       </div>
 
