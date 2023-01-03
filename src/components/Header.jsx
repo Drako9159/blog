@@ -17,13 +17,24 @@ export default function Header({ color, setColor }) {
       setBtn(styles.notActive);
     }
   }
-
+  /*
   function handleClick() {
     if (color === "night") {
       setColor("day");
     } else {
       setColor("night");
     }
+  }*/
+  function handleTheme(){
+    
+    if (color === "night") {
+      setColor("day");
+      localStorage.setItem("theme", "day")
+    } else {
+      setColor("night");
+      localStorage.setItem("theme", "night")
+    }
+
   }
 
   return (
@@ -90,7 +101,7 @@ export default function Header({ color, setColor }) {
             className={`${styles.dayOrNight} ${
               color === "night" ? styles.setNight : styles.setDay
             }`}
-            onClick={handleClick}
+            onClick={handleTheme}
           >
             <img
               className={
@@ -166,7 +177,7 @@ export default function Header({ color, setColor }) {
                   className={`${styles.dayOrNight} ${
                     color === "night" ? styles.setNight : styles.setDay
                   }`}
-                  onClick={handleClick}
+                  onClick={handleTheme}
                 >
                   <img
                     className={

@@ -1,12 +1,18 @@
 import Layout from "./components/Layout";
 import Wrapper from "./components/Wrapper";
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Start from "./views/start/Start";
 import About from "./views/about/About";
 
 function App() {
-  const [color, setColor] = useState("day");
+  const [color, setColor] = useState(localStorage.getItem("theme"));
+/*
+  useEffect(() => {
+    localStorage.setItem("theme", "day");
+    
+  }, []);*/
+
   return (
     <Layout color={color}>
       <Wrapper>

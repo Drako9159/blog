@@ -1,6 +1,6 @@
-# fly.toml file generated for blogbydrako on 2022-12-18T22:30:35-06:00
+# fly.toml file generated for drakoweb on 2022-12-21T19:16:22-06:00
 
-app = "blogbydrako"
+app = "drakoweb"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
