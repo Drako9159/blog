@@ -15,9 +15,9 @@ export default defineConfig({
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react()]/*,
   server: {
     port: process.env.PORT || 3000,
     host: true
-  }
+  }*/
 })
