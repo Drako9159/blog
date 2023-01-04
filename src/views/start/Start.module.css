@@ -115,8 +115,8 @@
 }
 .pickCard1 {
   width: 100%;
- 
-  animation: pickCard1 2s ease;
+ /*
+  animation: pickCard1 2s ease;*/
 }
 @keyframes pickCard1 {
   0% {
