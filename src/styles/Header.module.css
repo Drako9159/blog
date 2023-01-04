@@ -249,14 +249,16 @@
   position: relative;
   opacity: 0;
   visibility: hidden;
+  
 }
 .pickNightAnimation {
   width: 1.5rem;
   height: 1.5rem;
   position: relative;
   animation: night 1s ease;
-
-  transform: translateX(-12px);
+filter: contrast(1%);
+  
+  transform: translateX(-11px);
 }
 @keyframes night {
   0% {
