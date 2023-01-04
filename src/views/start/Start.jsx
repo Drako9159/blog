@@ -49,7 +49,7 @@ export default function Start({ color, setColor }) {
             }`}
             to="/"
           >
-            <img src={arrowDown} className={styles.arrowDown}></img>
+            <img src={arrowDown} className={`${styles.arrowDown} ${ color === "night" ? styles.arrowDownNight : ""}`}></img>
             Learn more about Antonio.jar
           </Link>
         </div>
