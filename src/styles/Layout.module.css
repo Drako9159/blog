@@ -11,6 +11,33 @@
   justify-content: center;
   background-color: #1f2028;
   width: 100%;
-
   transition: background-color 0.5s ease;
+}
+
+/* width 
+::-webkit-scrollbar {
+  width: 15px;
+}
+*/
+/* Track */
+
+/* Works on Firefox 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+}
+*/
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #8c8d94;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color:  #424247;
+  
+  
 }

@@ -15,6 +15,8 @@
   justify-content: space-between;
   -webkit-tap-highlight-color: transparent;
 }
+
+
 .containerDay {
   color: #eff0ff;
 }
@@ -555,3 +557,4 @@ span + span {
   80%{ background-color: #df2007bd; }
   100%{ background-color: #0aa8cfbd; }
 }
+

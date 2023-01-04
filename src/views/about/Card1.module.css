@@ -10,7 +10,7 @@
 .container {
   font-family: montseThin;
   width: 100%;
-  height: 400px;
+
   display: flex;
   justify-content: center;
   margin-top: 50px;
@@ -24,6 +24,9 @@
 .left {
   width: 39%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
  
 }
@@ -31,8 +34,6 @@
   font-size: 2.3rem;
   margin: 0;
   line-height: 50px;
-
-  
 }
 .left h1:nth-child(2){
   color: #7f7f85;
@@ -90,4 +91,26 @@
 }
 .logosSub h2:nth-child(4){
   background-color: #26c000;
+}
+
+@media screen and (max-width: 1000px) {
+  .container{
+    flex-direction: column
+  }
+  .left{
+    width: 95%;
+    
+    margin: 0 auto;
+    
+  }
+  .left h1 {
+    font-size: 1.8em;
+    
+    margin: 0;
+    line-height: 40px;
+  }
+  .right{
+    width: 100%;
+    margin-top:  20px;
+  }
 }

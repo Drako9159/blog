@@ -6,7 +6,7 @@ export default function Footer({ color }) {
       <h2
         style={color === "night" ? { color: "#cecfda" } : { color: "#3d3e44" }}
       >
-        All rights reserved © Antonio J. 2022
+        All rights reserved © Antonio J. 2023
       </h2>
     </div>
   );
