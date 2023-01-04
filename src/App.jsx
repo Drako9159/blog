@@ -1,9 +1,9 @@
 import Layout from "./components/Layout";
 import Wrapper from "./components/Wrapper";
 import { Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Start from "./views/start/Start";
-import About from "./views/about/About";
+import About from "./views/About";
 
 function App() {
   const [color, setColor] = useState(localStorage.getItem("theme"));

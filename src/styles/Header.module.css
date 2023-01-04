@@ -84,15 +84,23 @@
   height: 2px;
   max-width: 0;
   transition: transform 0.3s ease;
-
   transition: max-width 0.6s cubic-bezier(0.25, 0, 0, 1);
 }
 .nav .linksDesktop:hover:before {
   max-width: 200px;
 }
+
+
 .navNight .linksDesktop:before {
   background-color: #ececec;
 }
+.navNight .linksDesktop:before {
+  max-width: 200;
+
+}
+
+
+
 .navNight .linksDesktop {
   color: #c4c4c4;
 }
@@ -100,21 +108,37 @@
   transition: color 0.6s ease;
   color: #ececec;
 }
+
+
 .navDay .linksDesktop:before {
   background-color: #121213;
 }
 .navDay .linksDesktop {
-  color: #3d3e44;
+  color: #53545e;
 }
 .navDay .linksDesktop:hover {
   transition: color 0.6s ease;
-  color: #121213;
+  color: #000000;
 }
+
 /* Nav Desktop */
 .linksDesktop {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* Active link */
+.nav .activeLink:before {
+  max-width: 200px;
+}
+
+.nav .activeLinkNight{
+  color: #ececec;
+}
+.nav .activeLinkDay{
+  color: #000000;
+}
+/**/
 
 /* Burguer Button */
 
@@ -348,7 +372,7 @@
 }
 
 .containerBtnNight:hover {
-  box-shadow: 0 0 0 2px #cecfdaf8;
+  box-shadow: 0 0 0 2px #19ff71f8;
 }
 .containerBtnDay:hover {
   box-shadow: 0 0 0 2px #1f1f20e3;

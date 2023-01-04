@@ -4,9 +4,13 @@ import pickNight from "../assets/icons/sunWhite.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Header({ color, setColor }) {
+export default function Header({ color, setColor, activeLink }) {
   const [btn, setBtn] = useState(styles.notActive);
   const [isActiveButton, setActiveButton] = useState(styles.burguerNotActive);
+  const [linkActive, setLinkActice] = useState(activeLink)
+  
+  
+
 
   function handleClickBurguer(e) {
     if (isActiveButton === styles.burguerNotActive) {
@@ -59,7 +63,7 @@ export default function Header({ color, setColor }) {
       >
         <ul>
           <li>
-            <Link className={styles.linksDesktop} to="/">
+            <Link className={`${styles.linksDesktop} ${activeLink === "blog" ? styles.activeLink : ""}`} to="/">
               Blog
             </Link>
           </li>
@@ -89,7 +93,7 @@ export default function Header({ color, setColor }) {
             </Link>
           </li>
           <li>
-            <Link className={styles.linksDesktop} to="/">
+            <Link className={`${styles.linksDesktop} ${color === "night" ? styles.activeLinkNight : styles.activeLinkDay} ${activeLink === "about" ? styles.activeLink : ""}`} to="/about">
               About
             </Link>
           </li>
@@ -231,7 +235,7 @@ export default function Header({ color, setColor }) {
             </Link>
           </li>
           <li>
-            <Link className={styles.linksDesktop} to="/">
+            <Link className={styles.linksDesktop} to="/about">
               About
             </Link>
           </li>
