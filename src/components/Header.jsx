@@ -7,10 +7,6 @@ import { Link } from "react-router-dom";
 export default function Header({ color, setColor, activeLink }) {
   const [btn, setBtn] = useState(styles.notActive);
   const [isActiveButton, setActiveButton] = useState(styles.burguerNotActive);
-  const [linkActive, setLinkActice] = useState(activeLink)
-  
-  
-
 
   function handleClickBurguer(e) {
     if (isActiveButton === styles.burguerNotActive) {
@@ -21,14 +17,7 @@ export default function Header({ color, setColor, activeLink }) {
       setBtn(styles.notActive);
     }
   }
-  /*
-  function handleClick() {
-    if (color === "night") {
-      setColor("day");
-    } else {
-      setColor("night");
-    }
-  }*/
+  
   function handleTheme(){
     
     if (color === "night") {
