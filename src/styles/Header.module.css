@@ -2,6 +2,10 @@
   font-family: montseBold;
   src: url("../assets/Montserrat-Medium.ttf");
 }
+@font-face {
+  font-family: tumbly;
+  src: url("../assets/Tumbly A2.otf");
+}
 /* Container */
 .container {
   font-family: montseBold;
@@ -519,4 +523,35 @@ span + span {
   .iconDayOrNigthMobile {
     display: flex;
   }
+}
+.logo {
+  position: absolute;
+  font-family: tumbly;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  justify-content: center;
+  font-size: 20px;
+
+  padding: 8px;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  font-weight: bold;
+  text-align: center;
+  animation: logo 10s ease infinite;
+}
+.logoNight {
+  color: #ececec;
+}
+.logoDay {
+  color: #ececec;
+}
+@keyframes logo {
+  0%{ background-color: #0aa8cfbd; }
+  20%{ background-color: #FF6708; }
+  40%{ background-color:  #FF6708;}
+  60%{ background-color: #df2007bd; }
+  80%{ background-color: #df2007bd; }
+  100%{ background-color: #0aa8cfbd; }
 }

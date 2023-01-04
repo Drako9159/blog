@@ -138,7 +138,9 @@ export default function Header({ color, setColor, activeLink }) {
         </div>
 
         <div className={styles.icon}>
+          
           <svg className={styles.svg} viewBox={"0 0 10 10"}>
+            
             <defs>
               <circle
                 id={"circle"}
@@ -148,7 +150,9 @@ export default function Header({ color, setColor, activeLink }) {
                 fill={"transparent"}
                 strokeWidth={"0.5"}
               ></circle>
+              
             </defs>
+            
             <use
               xlinkHref={"#circle"}
               stroke={`${color === "night" ? "#FF6708" : "#812567"}`}
@@ -164,7 +168,9 @@ export default function Header({ color, setColor, activeLink }) {
               stroke="#df2007bd"
               strokeDasharray={"2.09,16.75,6.3"}
             />
+            
           </svg>
+          <p className={`${styles.logo} ${color === "night" ? styles.logoNight : styles.logoDay}`}>a</p>
         </div>
       </div>
 
