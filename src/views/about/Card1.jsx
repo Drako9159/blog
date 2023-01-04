@@ -1,6 +1,6 @@
 import styles from "./Card1.module.css";
 
-export default function Card1({ color, setColor }) {
+export default function Card1({ color }) {
   return (
     <div
       className={`${styles.container} ${
