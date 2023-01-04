@@ -52,7 +52,7 @@ export default function Header({ color, setColor, activeLink }) {
       >
         <ul>
           <li>
-            <Link className={`${styles.linksDesktop} ${activeLink === "blog" ? styles.activeLink : ""}`} to="/">
+            <Link className={`${styles.linksDesktop} ${activeLink === "blog" ? styles.activeLink : ""}`} to="/blog">
               Blog
             </Link>
           </li>
@@ -200,7 +200,7 @@ export default function Header({ color, setColor, activeLink }) {
           </li>
 
           <li>
-            <Link className={styles.linksDesktop} to="/">
+            <Link className={styles.linksDesktop} to="/blog">
               Blog
             </Link>
           </li>
