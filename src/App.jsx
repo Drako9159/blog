@@ -13,7 +13,7 @@ function App() {
    */
   localStorage.getItem("theme") === null ? localStorage.setItem("theme", "day") : "";
 
-  
+
   const [color, setColor] = useState(localStorage.getItem("theme"));
 
   return (

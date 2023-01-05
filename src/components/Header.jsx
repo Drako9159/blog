@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 export default function Header({ color, setColor, activeLink }) {
   const [btn, setBtn] = useState(styles.notActive);
   const [isActiveButton, setActiveButton] = useState(styles.burguerNotActive);
+  const [animationDay, setAnimationDay] = useState("");
+  const [animationNight, setAnimationNight] = useState("");
 
   function handleClickBurguer(e) {
     if (isActiveButton === styles.burguerNotActive) {
@@ -17,17 +19,19 @@ export default function Header({ color, setColor, activeLink }) {
       setBtn(styles.notActive);
     }
   }
-  
-  function handleTheme(){
-    
+
+  function handleTheme() {
+    setAnimationDay(styles.pickDayAnimationOn);
+    setAnimationNight(styles.pickNightAnimationOn);
     if (color === "night") {
       setColor("day");
-      localStorage.setItem("theme", "day")
+
+      localStorage.setItem("theme", "day");
     } else {
       setColor("night");
-      localStorage.setItem("theme", "night")
-    }
 
+      localStorage.setItem("theme", "night");
+    }
   }
 
   return (
@@ -52,7 +56,12 @@ export default function Header({ color, setColor, activeLink }) {
       >
         <ul>
           <li>
-            <Link className={`${styles.linksDesktop} ${activeLink === "blog" ? styles.activeLink : ""}`} to="/">
+            <Link
+              className={`${styles.linksDesktop} ${
+                activeLink === "blog" ? styles.activeLink : ""
+              }`}
+              to="/"
+            >
               Blog
             </Link>
           </li>
@@ -82,7 +91,14 @@ export default function Header({ color, setColor, activeLink }) {
             </Link>
           </li>
           <li>
-            <Link className={`${styles.linksDesktop} ${color === "night" ? styles.activeLinkNight : styles.activeLinkDay} ${activeLink === "about" ? styles.activeLink : ""}`} to="/about">
+            <Link
+              className={`${styles.linksDesktop} ${
+                color === "night"
+                  ? styles.activeLinkNight
+                  : styles.activeLinkDay
+              } ${activeLink === "about" ? styles.activeLink : ""}`}
+              to="/about"
+            >
               About
             </Link>
           </li>
@@ -98,14 +114,17 @@ export default function Header({ color, setColor, activeLink }) {
           >
             <img
               className={
-                color === "night" ? styles.pickDay : styles.pickDayAnimation
+                /////////////////////////////////////
+                `${styles.pickDayAnimation} ${
+                  color === "night" ? styles.pickDay : animationDay
+                }`
               }
               src={pickDay}
             ></img>
             <img
-              className={
-                color === "day" ? styles.pickNight : styles.pickNightAnimation
-              }
+              className={` ${styles.pickNightAnimation} ${
+                color === "day" ? styles.pickNight : animationNight
+              }`}
               src={pickNight}
             ></img>
           </div>
@@ -127,9 +146,7 @@ export default function Header({ color, setColor, activeLink }) {
         </div>
 
         <div className={styles.icon}>
-          
           <svg className={styles.svg} viewBox={"0 0 10 10"}>
-            
             <defs>
               <circle
                 id={"circle"}
@@ -139,9 +156,8 @@ export default function Header({ color, setColor, activeLink }) {
                 fill={"transparent"}
                 strokeWidth={"0.5"}
               ></circle>
-              
             </defs>
-            
+
             <use
               xlinkHref={"#circle"}
               stroke={`${color === "night" ? "#FF6708" : "#812567"}`}
@@ -157,9 +173,14 @@ export default function Header({ color, setColor, activeLink }) {
               stroke="#df2007bd"
               strokeDasharray={"2.09,16.75,6.3"}
             />
-            
           </svg>
-          <p className={`${styles.logo} ${color === "night" ? styles.logoNight : styles.logoDay}`}>a</p>
+          <p
+            className={`${styles.logo} ${
+              color === "night" ? styles.logoNight : styles.logoDay
+            }`}
+          >
+            a
+          </p>
         </div>
       </div>
 
@@ -180,17 +201,17 @@ export default function Header({ color, setColor, activeLink }) {
                 >
                   <img
                     className={
-                      color === "night"
-                        ? styles.pickDay
-                        : styles.pickDayAnimation
+                      `${styles.pickDayAnimation} ${
+                        color === "night" ? styles.pickDay : animationDay
+                      }`
                     }
                     src={pickDay}
                   ></img>
                   <img
                     className={
-                      color === "day"
-                        ? styles.pickNight
-                        : styles.pickNightAnimation
+                      ` ${styles.pickNightAnimation} ${
+                        color === "day" ? styles.pickNight : animationNight
+                      }`
                     }
                     src={pickNight}
                   ></img>

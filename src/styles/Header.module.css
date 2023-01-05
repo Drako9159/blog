@@ -239,7 +239,6 @@
   box-shadow: 0 0 0 2px #ffffffbd;
 }
 /* Buttons */
-
 .pickDay {
   width: 1.5rem;
   height: 1.5rem;
@@ -250,10 +249,13 @@
   width: 1.5rem;
   height: 1.5rem;
   position: relative;
-  animation: day 1s ease;
-
   transform: translateX(12px);
 }
+.pickDayAnimationOn{
+  animation: day 1s ease;
+}
+
+
 @keyframes day {
   0% {
     transform: translateX(50px);
@@ -279,11 +281,14 @@
   width: 1.5rem;
   height: 1.5rem;
   position: relative;
-  animation: night 1s ease;
+  
   filter: contrast(1%);
-
   transform: translateX(-11px);
 }
+.pickNightAnimationOn {
+  animation: night 1s ease;
+}
+
 @keyframes night {
   0% {
     transform: translateX(-50px);
@@ -305,11 +310,12 @@
   justify-content: center;
 }
 .icon .svg {
-  width: 3.7rem;
-  height: 3.7rem;
+  width: 4.3rem;
+  height: 4.3rem;
   cursor: pointer;
   animation: iconSvg 10s linear infinite;
-  box-shadow: 0 0 0 2px rgba(131, 131, 134, 0.404);
+  /*box-shadow: 0 0 0 2px rgba(131, 131, 134, 0.404);
+   */
   border-radius: 100%;
 }
 
@@ -533,12 +539,12 @@ span + span {
   align-items: center;
   margin: 0;
   justify-content: center;
-  font-size: 20px;
+  font-size: 25px;
 
   padding: 8px;
   border-radius: 100%;
-  width: 20px;
-  height: 20px;
+  width: 1.8rem;
+  height: 1.8rem;
   font-weight: bold;
   text-align: center;
   animation: logo 10s ease infinite;

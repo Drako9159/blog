@@ -74,14 +74,13 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  
   font-size: 2rem;
   width: 70px;
   height: 70px;
   margin: 5px;
 }
 .logosSub h2:nth-child(1){
-  background-color: #d4dd1f;
+  background-color: #f11818;
 }
 .logosSub h2:nth-child(2){
   background-color: #ff8800;
