@@ -1,15 +1,69 @@
 @font-face {
-  font-family: montseBold;
-  src: url("../assets/Montserrat-Medium.ttf");
+  font-family: montseThini;
+  src: url("../assets/Montserrat-Regular.ttf");
 }
 .container {
-  font-family: montseBold;
+  font-family: montseThini;
   width: 100%;
   margin-top: 20px;
+  
+  display: flex;
+  flex-direction: column;
+  
+  
 }
-.container h2 {
+.container .laster {
   font-size: 1.2rem;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
+}
+.container .socialMedia{
+  display: flex;
+  
+  
+  justify-content: center;
+}
+.containerNight{
+  color: #7f7f85;
+  
+
+}
+.containerDay{
+   color: #7f7f85;
+}
+
+.left{
+  width: 35%;
+
+}
+.left .nameNight{
+  color: #ffffff;
+}
+.left .nameDay{
+  color: #000000;
+}
+.right{
+  width: 55%;
+  
+}
+.icons{
+  display: flex;
+}
+.icons img{
+  width: 35px;
+  margin: 7px;
+  
+}
+.iconsNight img{
+  filter: contrast(1%);
+}
+@media screen and (max-width: 1000px) {
+  .socialMedia{
+    
+    flex-direction: column;
+  }
+  .left{
+    width: 100%;
+  }
 }
