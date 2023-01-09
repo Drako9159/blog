@@ -3,13 +3,16 @@ import pickGithub from "../assets/icons/footer/github.svg";
 import pickLinkedin from "../assets/icons/footer/linkedin.svg";
 import pickTwitter from "../assets/icons/footer/twitter.svg";
 import pickCountry from "../assets/icons/footer/idioma.png";
+import { footerEnglish, footerSpanish } from "../languages/Footer";
 
-export default function Footer({ color }) {
+export default function Footer({ color, language }) {
+  const strings = language === "english" ? footerEnglish : footerSpanish;
+
   function handleLanguage(value) {
     localStorage.setItem("language", `${value}`)
     window.location.reload(false)
   }
-
+  console.log(language)
   return (
     <div
       className={`${styles.container} ${
@@ -19,9 +22,9 @@ export default function Footer({ color }) {
       <div className={styles.socialMedia}>
         <div className={styles.left}>
           <h2 className={color === "night" ? styles.nameNight : styles.nameDay}>
-            Antonio Jaramillo
+            {strings.name}
           </h2>
-          <h2>Full time educator making our world better</h2>
+          <h2>{strings.legend}</h2>
           <div
             className={`${styles.icons} ${
               color === "night" ? styles.iconsNight : ""
@@ -45,7 +48,7 @@ export default function Footer({ color }) {
       </div>
 
       <div className={styles.info}>
-        <h2 className={styles.laster}>All rights reserved © Antonio J. 2023</h2>
+        <h2 className={styles.laster}>{strings.rights}</h2>
         <div className={styles.country}>
           <select onChange={(e) => handleLanguage(e.target.value)}
           value={localStorage.getItem("language")}
