@@ -5,8 +5,11 @@ import styles from "./Start.module.css";
 import pickCard1Night from "./images/moon.png";
 import pickCard1Day from "./images/dino.png";
 import arrowDown from "./images/arrowDown.png";
+import { startEnglish, startSpanish } from "../../languages/Home";
+
 
 export default function Start({ color, setColor, language, setLanguage }) {
+  const strings = language === "english" ? startEnglish : startSpanish;
   return (
     <>
       <Header color={color} setColor={setColor} language={language}></Header>
@@ -17,8 +20,7 @@ export default function Start({ color, setColor, language, setLanguage }) {
           }`}
         >
           <h2>
-            Helping people make the world a better place through quality
-            software.
+            {strings.text}
           </h2>
           <Link
             className={`${styles.button1Card1} ${

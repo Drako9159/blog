@@ -5,6 +5,7 @@ import { useState } from "react";
 import Start from "./views/start/Start";
 import About from "./views/About";
 import Blog from "./views/Blog";
+import Home from "./views/Home";
 
 function App() {
   /**
@@ -30,7 +31,7 @@ function App() {
             <Route
               path="/"
               element={
-                <Start
+                <Home
                   color={color}
                   setColor={setColor}
                   language={language}

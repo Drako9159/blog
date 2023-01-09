@@ -6,7 +6,7 @@ export default function About({ color, setColor, language}) {
   return (
     <>
       <Header color={color} setColor={setColor} activeLink={"about"}></Header>
-      <Card1 color={color}></Card1>
+      <Card1 color={color} language={language}></Card1>
       <Footer color={color} language={language}></Footer>
     </>
   );

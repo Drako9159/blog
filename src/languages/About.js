@@ -1,9 +1,9 @@
-export const card1English = {
+export const card1Spanish = {
   text1: "Hola, soy Antonio Jaramillo, desarrollador de software profesional.",
-  text2: ""
+  text2: "Enfocado en ofrecer la mejor experiencia de usuario con software de calidad."
 };
 
-export const card1Spanish = {
-    text1: "Hola, soy Antonio Jaramillo, educador a tiempo completo.",
-    text2: "Hago del mundo un lugar mejor enseñando a gente como tú a hacer software de calidad."
+export const card1English = {
+    text1: "Hi, I'm Antonio Jaramillo, professional software developer.",
+    text2: "Focused on offering the best user experience with quality software."
 };

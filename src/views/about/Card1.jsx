@@ -1,6 +1,8 @@
 import styles from "./Card1.module.css";
+import { card1English, card1Spanish } from "../../languages/About";
 
-export default function Card1({ color }) {
+export default function Card1({ color, language }) {
+  const strings = language === "english" ? card1English : card1Spanish;
   return (
     <div
       className={`${styles.container} ${
@@ -9,11 +11,10 @@ export default function Card1({ color }) {
     >
       <div className={styles.left}>
         <h1>
-          Hi, I'm Antonio Jaramillo, I'm a full time educator. <br></br>
+          {strings.text1} <br></br>
           
         </h1>
-        <h1>I make the world a
-          better place by teaching people like you how to make quality software.</h1>
+        <h1>{strings.text2}</h1>
       </div>
       <div className={styles.right}>
         <div className={styles.logotipo}>
