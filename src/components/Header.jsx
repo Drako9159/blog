@@ -12,7 +12,8 @@ export default function Header({ color, setColor, activeLink, language }) {
   const [animationNight, setAnimationNight] = useState("");
 
   const strings = language === "english" ? headerEnglish : headerSpanish;
-
+  
+  
   function handleClickBurguer(e) {
     if (isActiveButton === styles.burguerNotActive) {
       setActiveButton(styles.burguerActive);

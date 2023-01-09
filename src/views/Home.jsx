@@ -7,7 +7,6 @@ export default function Home({ color, setColor, language, setLanguage }){
         <>
           <Header color={color} setColor={setColor} language={language}></Header>
           <Card1 color={color} setColor={setColor} language={language}></Card1>
-    
           <Footer
             color={color}
             language={language}

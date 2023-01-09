@@ -15,13 +15,14 @@ function App() {
     ? localStorage.setItem("theme", "day")
     : "";
 
-  const [color, setColor] = useState(localStorage.getItem("theme"));
-
   localStorage.getItem("language") === null
     ? localStorage.setItem("language", "english")
     : "";
+   
+
+  const [color, setColor] = useState(localStorage.getItem("theme"));
+
   const [language, setLanguage] = useState(localStorage.getItem("language"));
- 
 
   return (
     <Layout color={color}>
