@@ -6,10 +6,10 @@ import pickCard1Night from "./images/moon.png";
 import pickCard1Day from "./images/dino.png";
 import arrowDown from "./images/arrowDown.png";
 
-export default function Start({ color, setColor }) {
+export default function Start({ color, setColor, language, setLanguage }) {
   return (
     <>
-      <Header color={color} setColor={setColor}></Header>
+      <Header color={color} setColor={setColor} language={language}></Header>
       <div className={styles.card1}>
         <div
           className={`${styles.card1Left} ${
@@ -49,7 +49,12 @@ export default function Start({ color, setColor }) {
             }`}
             to="/"
           >
-            <img src={arrowDown} className={`${styles.arrowDown} ${ color === "night" ? styles.arrowDownNight : ""}`}></img>
+            <img
+              src={arrowDown}
+              className={`${styles.arrowDown} ${
+                color === "night" ? styles.arrowDownNight : ""
+              }`}
+            ></img>
             Learn more about Antonio.jar
           </Link>
         </div>
@@ -62,7 +67,11 @@ export default function Start({ color, setColor }) {
         </div>
       </div>
 
-      <Footer color={color}></Footer>
+      <Footer
+        color={color}
+        language={language}
+        setLanguage={setLanguage}
+      ></Footer>
     </>
   );
 }

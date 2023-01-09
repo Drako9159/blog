@@ -6,11 +6,9 @@
   font-family: montseThini;
   width: 100%;
   margin-top: 20px;
-  
+
   display: flex;
   flex-direction: column;
-  
-  
 }
 .container .laster {
   font-size: 1.2rem;
@@ -18,52 +16,84 @@
   display: flex;
   flex-wrap: wrap;
 }
-.container .socialMedia{
+.container .socialMedia {
   display: flex;
-  
-  
+
   justify-content: center;
 }
-.containerNight{
+.containerNight {
   color: #7f7f85;
-  
-
 }
-.containerDay{
-   color: #7f7f85;
+.containerDay {
+  color: #7f7f85;
 }
 
-.left{
+.left {
   width: 35%;
-
 }
-.left .nameNight{
+.left .nameNight {
   color: #ffffff;
 }
-.left .nameDay{
+.left .nameDay {
   color: #000000;
 }
-.right{
+.right {
   width: 55%;
-  
 }
-.icons{
+.icons {
   display: flex;
 }
-.icons img{
+.icons img {
   width: 35px;
   margin: 7px;
-  
 }
-.iconsNight img{
+.iconsNight img {
   filter: contrast(1%);
 }
 @media screen and (max-width: 1000px) {
-  .socialMedia{
-    
+  .socialMedia {
     flex-direction: column;
   }
-  .left{
+  .left {
     width: 100%;
   }
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+.container .country {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.country img {
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+}
+.pickCountryNight {
+  filter: contrast(1%);
+}
+.selector {
+  font-family: montseThini;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+  outline: none;
+}
+.selector option {
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+.selectorDay {
+  color: #7f7f85;
+  background-color: #ffffff;
+}
+.selectorNight {
+  color: #7f7f85;
+  background-color: #1f2028;
 }

@@ -129,10 +129,12 @@
 }
 
 /* Active link */
-.nav .activeLink:before {
+.nav .activeLinkNight:before {
   max-width: 200px;
 }
-
+.nav .activeLinkDay:before {
+  max-width: 200px;
+}
 .nav .activeLinkNight {
   color: #ececec;
 }

@@ -3,12 +3,15 @@ import pickDay from "../assets/icons/sunAll.png";
 import pickNight from "../assets/icons/sunWhite.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { headerSpanish, headerEnglish } from "../languages/Header";
 
-export default function Header({ color, setColor, activeLink }) {
+export default function Header({ color, setColor, activeLink, language }) {
   const [btn, setBtn] = useState(styles.notActive);
   const [isActiveButton, setActiveButton] = useState(styles.burguerNotActive);
   const [animationDay, setAnimationDay] = useState("");
   const [animationNight, setAnimationNight] = useState("");
+
+  const strings = language === "english" ? headerEnglish : headerSpanish;
 
   function handleClickBurguer(e) {
     if (isActiveButton === styles.burguerNotActive) {
@@ -46,7 +49,7 @@ export default function Header({ color, setColor, activeLink }) {
         }`}
       >
         <Link className={styles.linkTitle} to="/">
-          Antonio.jar
+          {strings.home}
         </Link>
       </div>
       <div
@@ -62,44 +65,46 @@ export default function Header({ color, setColor, activeLink }) {
               }`}
               to="/"
             >
-              Blog
+              {strings.nav[0]}
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              Courses
+              {strings.nav[1]}
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              Discord
+              {strings.nav[2]}
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              Chats
+              {strings.nav[3]}
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              Calls
+              {strings.nav[4]}
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              Workshops
+              {strings.nav[5]}
             </Link>
           </li>
           <li>
             <Link
-              className={`${styles.linksDesktop} ${
-                color === "night"
+              className={`${styles.linksDesktop}  ${
+                activeLink === "about" && color === "night"
                   ? styles.activeLinkNight
-                  : styles.activeLinkDay
-              } ${activeLink === "about" ? styles.activeLink : ""}`}
+                  : activeLink === "about" && color === "day"
+                  ? styles.activeLinkDay
+                  : ""
+              } `}
               to="/about"
             >
-              About
+              {strings.nav[6]}
             </Link>
           </li>
         </ul>
@@ -200,19 +205,15 @@ export default function Header({ color, setColor, activeLink }) {
                   onClick={handleTheme}
                 >
                   <img
-                    className={
-                      `${styles.pickDayAnimation} ${
-                        color === "night" ? styles.pickDay : animationDay
-                      }`
-                    }
+                    className={`${styles.pickDayAnimation} ${
+                      color === "night" ? styles.pickDay : animationDay
+                    }`}
                     src={pickDay}
                   ></img>
                   <img
-                    className={
-                      ` ${styles.pickNightAnimation} ${
-                        color === "day" ? styles.pickNight : animationNight
-                      }`
-                    }
+                    className={` ${styles.pickNightAnimation} ${
+                      color === "day" ? styles.pickNight : animationNight
+                    }`}
                     src={pickNight}
                   ></img>
                 </div>
@@ -222,37 +223,37 @@ export default function Header({ color, setColor, activeLink }) {
 
           <li>
             <Link className={styles.linksDesktop} to="/">
-              Blog
+              {strings.nav[0]}
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              Courses
+              {strings.nav[1]}
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              Discord
+              {strings.nav[2]}
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              Chats
+              {strings.nav[3]}
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              Calls
+              {strings.nav[4]}
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              Workshops
+              {strings.nav[5]}
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/about">
-              About
+              {strings.nav[6]}
             </Link>
           </li>
         </ul>
