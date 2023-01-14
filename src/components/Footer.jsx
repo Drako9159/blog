@@ -12,7 +12,7 @@ export default function Footer({ color, language }) {
     localStorage.setItem("language", `${value}`)
     window.location.reload(false)
   }
-  console.log(language)
+  
   return (
     <div
       className={`${styles.container} ${
