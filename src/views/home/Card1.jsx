@@ -37,12 +37,13 @@ export default function Card1({ color, language }) {
         </Link>
 
         <Link
+        
           className={`${styles.button3Card1} ${
             color === "night"
               ? styles.button3Card1Night
               : styles.button3Card1Day
           }`}
-          to="/"
+          to="/about"
         >
           <img
             src={arrowDown}
