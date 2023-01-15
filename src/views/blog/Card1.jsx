@@ -1,5 +1,5 @@
 import styles from "./Card1.module.css"
-import { card1English, card1Spanish } from "../../languages/About";
+import { card1English, card1Spanish } from "../../languages/Blog";
 
 export default function Card1({color, language}){
     const strings = language === "english" ? card1English : card1Spanish;
@@ -10,11 +10,12 @@ export default function Card1({color, language}){
       }`}
     >
       <div className={styles.left}>
-        <h1>
+        
+        <h1 className={styles.animation1}>
           {strings.text1} <br></br>
           
         </h1>
-        <h1>{strings.text2}</h1>
+        <h1 className={styles.animation2}>{strings.text2}</h1>
       </div>
       <div className={styles.right}>
         <div className={styles.logotipo}>

@@ -14,7 +14,7 @@ export default function Card1({ color, language }) {
           color === "night" ? styles.card1LeftNight : styles.card1LeftDay
         }`}
       >
-        <h2>{strings.text}</h2>
+        <h2 className={styles.animation1}>{strings.text}</h2>
         <Link
           className={`${styles.button1Card1} ${
             color === "night"

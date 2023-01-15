@@ -10,11 +10,11 @@ export default function Card1({ color, language }) {
       }`}
     >
       <div className={styles.left}>
-        <h1>
+        <h1 className={styles.animation1}>
           {strings.text1} <br></br>
           
         </h1>
-        <h1>{strings.text2}</h1>
+        <h1 className={styles.animation2}>{strings.text2}</h1>
       </div>
       <div className={styles.right}>
         <div className={styles.logotipo}>

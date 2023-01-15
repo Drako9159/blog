@@ -6,6 +6,7 @@ import Start from "./views/start/Start";
 import About from "./views/About";
 import Blog from "./views/Blog";
 import Home from "./views/Home";
+import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
   /**
@@ -25,9 +26,13 @@ function App() {
   const [language, setLanguage] = useState(localStorage.getItem("language"));
 
   return (
+    
     <Layout color={color}>
+     
       <Wrapper>
+        
         <BrowserRouter>
+        <ScrollToTop></ScrollToTop>
           <Routes>
             <Route
               path="/"
