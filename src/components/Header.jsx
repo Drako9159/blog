@@ -61,10 +61,14 @@ export default function Header({ color, setColor, activeLink, language }) {
         <ul>
           <li>
             <Link
-              className={`${styles.linksDesktop} ${
-                activeLink === "blog" ? styles.activeLink : ""
-              }`}
-              to="/"
+             className={`${styles.linksDesktop}  ${
+              activeLink === "blog" && color === "night"
+                ? styles.activeLinkNight
+                : activeLink === "blog" && color === "day"
+                ? styles.activeLinkDay
+                : ""
+            } `}
+            to="/blog"
             >
               {strings.nav[0]}
             </Link>
@@ -223,7 +227,7 @@ export default function Header({ color, setColor, activeLink, language }) {
           </li>
 
           <li>
-            <Link className={styles.linksDesktop} to="/">
+            <Link className={styles.linksDesktop} to="/blog">
               {strings.nav[0]}
             </Link>
           </li>
