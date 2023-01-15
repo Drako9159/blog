@@ -157,10 +157,14 @@
   }
   .card1Left h2 {
     width: 100%;
+   
   }
 
   .card1Right {
     width: 100%;
+  }
+  .pickCard1{
+    margin-bottom: 30px;
   }
 }
 @media screen and (min-width: 1000px) {
