@@ -1,5 +1,5 @@
 import axios from "axios"
-const authApi = axios.create({
-    baseURL: "https://backendblog.fly.dev/api/posts",
-    withCredentials: true
-})
+
+export const getPostsRequest = async () => {
+    await axios.get(`https://backendblog.fly.dev/api/posts`)
+}

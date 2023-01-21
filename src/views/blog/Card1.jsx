@@ -1,25 +1,9 @@
 import styles from "./Card1.module.css";
 import { card1English, card1Spanish } from "../../languages/Blog";
-import { useEffect, useState } from "react";
+
 
 export default function Card1({ color, language }) {
-  const [posts, setPost] = useState({ data: "clean" });
-
-  useEffect(() => {
-    async function api() {
-      /*
-      await fetch("https://backendblog.fly.dev/api/posts").then((response) =>
-        response.json().then((data) => setPost(data))
-      );*/
-      const response = await fetch("https://backendblog.fly.dev/api/posts");
-      const data = await response.json();
-      setPost({ data: data });
-      console.log(data)
-    }
-
-    api();
-    
-  }, []);
+  
 
   const strings = language === "english" ? card1English : card1Spanish;
   return (
@@ -45,8 +29,6 @@ export default function Card1({ color, language }) {
           </div>
         </div>
       </div>
-
-      <div></div>
     </div>
   );
 }
