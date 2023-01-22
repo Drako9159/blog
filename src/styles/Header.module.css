@@ -171,6 +171,7 @@
   max-height: 500px;
   opacity: 1;
   animation: transitionButton 0.3s ease;
+  z-index: 200;
 }
 @keyframes transitionButton {
   0% {
@@ -515,7 +516,7 @@ span + span {
   }
 }
 /* Container Burguer Button */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1150px) {
   .nav {
     display: none;
   }
@@ -526,7 +527,7 @@ span + span {
     display: flex;
   }
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1150px) {
   .burguerNav {
     display: none;
   }

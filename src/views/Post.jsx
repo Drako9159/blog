@@ -26,7 +26,7 @@ export default function Post({ color, setColor, language, setLanguage }) {
         activeLink={"blog"}
         language={language}
       ></Header>
-      <Card1></Card1>
+      <Card1 color={color} language={language}></Card1>
       <Card2 color={color} language={language} post={post}></Card2>
       
       <Footer

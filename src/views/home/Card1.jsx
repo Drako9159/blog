@@ -21,7 +21,7 @@ export default function Card1({ color, language }) {
               ? styles.button1Card1Night
               : styles.button1Card1Day
           }`}
-          to="/"
+          to="/blog"
         >
           {strings.button1}
         </Link>
@@ -31,7 +31,7 @@ export default function Card1({ color, language }) {
               ? styles.button2Card1Night
               : styles.button2Card1Day
           }`}
-          to="/"
+          to="/about"
         >
           {strings.button2}
         </Link>

@@ -14,6 +14,8 @@ export default function Footer({ color, language }) {
   }
   
   return (
+    <>
+    <span className={styles.spanDown}></span>
     <div
       className={`${styles.container} ${
         color === "night" ? styles.containerNight : styles.containerDay
@@ -65,6 +67,6 @@ export default function Footer({ color, language }) {
           ></img>
         </div>
       </div>
-    </div>
+    </div></>
   );
 }
