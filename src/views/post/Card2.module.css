@@ -1,0 +1,11 @@
+@font-face {
+  font-family: montseThin;
+  src: url("../../assets/Montserrat-Regular.ttf");
+}
+
+
+.container {
+  font-family: montseThin;
+  width: 100%;
+  margin-top: 50px;
+}

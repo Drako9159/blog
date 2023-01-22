@@ -1,11 +1,12 @@
 import Layout from "./components/Layout";
 import Wrapper from "./components/Wrapper";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Start from "./views/start/Start";
 import About from "./views/About";
 import Blog from "./views/Blog";
 import Home from "./views/Home";
+import Post from "./views/Post";
 import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
   const [color, setColor] = useState(localStorage.getItem("theme"));
 
   const [language, setLanguage] = useState(localStorage.getItem("language"));
+
+  
 
   return (
     
@@ -64,6 +67,19 @@ function App() {
                   setColor={setColor}
                   language={language}
                   setLanguage={setLanguage}
+                  
+                />
+              }
+            ></Route>
+            <Route
+              path="/blog/:id"
+              element={
+                <Post
+                  color={color}
+                  setColor={setColor}
+                  language={language}
+                  setLanguage={setLanguage}
+                  
                 />
               }
             ></Route>
