@@ -6,18 +6,19 @@ import { useState, useEffect } from "react";
 
 
 export default function Blog({ color, setColor, language, setLanguage }) {
-  
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     async function restApi() {
-      const response = await fetch(`https://backendblog.fly.dev/api/posts/${language}`);
+      const response = await fetch(
+        `https://backendblog.fly.dev/api/posts/${language}`
+      );
       const data = await response.json();
       setPosts(data.data);
     }
     restApi();
   }, []);
-  
+
   return (
     <>
       <Header
@@ -26,6 +27,7 @@ export default function Blog({ color, setColor, language, setLanguage }) {
         activeLink={"blog"}
         language={language}
       ></Header>
+     
       <Card1 color={color} language={language}></Card1>
       <Card2 color={color} language={language} posts={posts}></Card2>
       <Footer
