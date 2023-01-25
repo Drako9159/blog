@@ -16,9 +16,12 @@ export default function Blog({ color, setColor, language, setLanguage }) {
       const data = await response.json();
       setPosts(data.data);
     }
-    restApi();
+    setTimeout(() => {
+      restApi();
+    }, 1500);
+    
   }, []);
-
+  
   return (
     <>
       <Header

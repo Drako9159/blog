@@ -8,6 +8,20 @@
   font-weight: bold;
   width: 57%;
   margin-top: 50px;
+  animation: animate .4s ease;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    margin-top: 70px;
+  }
+ 
+  100% {
+    opacity: 1;
+    margin-top: 50px;
+    
+  }
 }
 
 .container p {

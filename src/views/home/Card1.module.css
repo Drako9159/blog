@@ -83,8 +83,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 60%;
+  /** change from 60 to 90 for best mobile experience */
+  width: 90%;
   max-width: 270px;
+  
 }
 .arrowDown {
   width: 26px;

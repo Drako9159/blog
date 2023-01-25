@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+
+
 export default function Post({ color, setColor, language, setLanguage }) {
   const routeParams = useParams();
   const [post, setPost] = useState([]);
@@ -15,7 +17,9 @@ export default function Post({ color, setColor, language, setLanguage }) {
       const data = await response.json();
       setPost(data);
     }
-    restApi();
+    setTimeout(() => {
+      restApi();
+    }, 1500);
   }, []);
 
   return (
