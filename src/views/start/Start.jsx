@@ -56,6 +56,7 @@ export default function Start({ color, setColor, language, setLanguage }) {
               className={`${styles.arrowDown} ${
                 color === "night" ? styles.arrowDownNight : ""
               }`}
+              alt="arrow-down"
             ></img>
             Learn more about Antonio.jar
           </Link>
@@ -65,6 +66,7 @@ export default function Start({ color, setColor, language, setLanguage }) {
           <img
             className={styles.pickCard1}
             src={color === "night" ? pickCard1Night : pickCard1Day}
+            alt="fron-img"
           ></img>
         </div>
       </div>

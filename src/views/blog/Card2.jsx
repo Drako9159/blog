@@ -12,6 +12,7 @@ export default function Card2({ color, posts, status }) {
     return <div>NOT POST FOUND</div>
   }
   
+  
   return (
     <div className={styles.container}>
       {posts.map((e) => {
@@ -21,6 +22,7 @@ export default function Card2({ color, posts, status }) {
               <div className={styles.head}>
                 <img
                   src={`https://backendblog.fly.dev${e.image}`}
+                  alt={e.title}
                   className={styles.pick}
                   style={{ outlineColor: `${e.color}`}}
                 ></img>

@@ -54,16 +54,16 @@ export default function Footer({ color, language }) {
                 color === "night" ? styles.iconsNight : ""
               }`}
             >
-              <a target={"_blank"} href="https://github.com/Drako9159">
+              <a target={"_blank"} alt="github" href="https://github.com/Drako9159">
                 <img src={pickGithub}></img>
               </a>
               <a
-                target={"_blank"}
+                target={"_blank"} alt="linkedIn"
                 href="https://www.linkedin.com/in/antonio-jaramillo-099a77250"
               >
                 <img src={pickLinkedin}></img>
               </a>
-              <a target={"_blank"} href="https://twitter.com/Drako9159">
+              <a target={"_blank"} alt="twitter" href="https://twitter.com/Drako9159">
                 <img src={pickTwitter}></img>
               </a>
             </div>
@@ -86,6 +86,7 @@ export default function Footer({ color, language }) {
             </select>
             <img
               src={pickCountry}
+              alt="world-language"
               className={`${color === "night" ? styles.pickCountryNight : ""}`}
             ></img>
           </div>
