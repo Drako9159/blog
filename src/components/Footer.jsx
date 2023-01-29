@@ -12,8 +12,6 @@ export default function Footer({ color, language }) {
   const checkRute = useParams();
   const navigate = useNavigate();
 
-  
-
   function handleLanguage(value) {
     /** Return to blog for reload posts  */
     if (checkRute.id) {
@@ -21,16 +19,13 @@ export default function Footer({ color, language }) {
       if (
         returnPage.split("-").pop() === "spanish" ||
         returnPage.split("-").pop() === "english"
-      ){
-        navigate("/blog")
+      ) {
+        navigate("/blog");
       }
-        
     }
     localStorage.setItem("language", `${value}`);
-    
+
     window.location.reload(false);
-    
-   
   }
 
   return (
@@ -54,17 +49,17 @@ export default function Footer({ color, language }) {
                 color === "night" ? styles.iconsNight : ""
               }`}
             >
-              <a target={"_blank"} alt="github" href="https://github.com/Drako9159">
-                <img src={pickGithub}></img>
+              <a target={"_blank"} href="https://github.com/Drako9159">
+                <img alt="github" src={pickGithub}></img>
               </a>
               <a
-                target={"_blank"} alt="linkedIn"
+                target={"_blank"}
                 href="https://www.linkedin.com/in/antonio-jaramillo-099a77250"
               >
-                <img src={pickLinkedin}></img>
+                <img alt="linkedIn" src={pickLinkedin}></img>
               </a>
-              <a target={"_blank"} alt="twitter" href="https://twitter.com/Drako9159">
-                <img src={pickTwitter}></img>
+              <a target={"_blank"} href="https://twitter.com/Drako9159">
+                <img alt="twitter" src={pickTwitter}></img>
               </a>
             </div>
           </div>
