@@ -2,11 +2,16 @@ import styles from "./Card2.module.css";
 import { Link } from "react-router-dom";
 import ChargeAnimation from "../../components/ChargeAnimation";
 
-export default function Card2({ color, posts }) {
+export default function Card2({ color, posts, status }) {
   
   if(posts.length === 0){
     return <ChargeAnimation color={color}></ChargeAnimation>
   }
+
+  if(status === 400){
+    return <div>NOT POST FOUND</div>
+  }
+  
   return (
     <div className={styles.container}>
       {posts.map((e) => {

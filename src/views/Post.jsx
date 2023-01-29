@@ -10,12 +10,14 @@ import { useState, useEffect } from "react";
 export default function Post({ color, setColor, language, setLanguage }) {
   const routeParams = useParams();
   const [post, setPost] = useState([]);
+  const [ status, setStatus] = useState(0)
 
   useEffect(() => {
     async function restApi() {
       const response = await fetch(`https://backendblog.fly.dev/api/posts/${routeParams.id}`);
       const data = await response.json();
       setPost(data);
+      setStatus(response.status)
     }
     setTimeout(() => {
       restApi();
@@ -31,7 +33,7 @@ export default function Post({ color, setColor, language, setLanguage }) {
         language={language}
       ></Header>
       <Card1 color={color} language={language}></Card1>
-      <Card2 color={color} language={language} post={post}></Card2>
+      <Card2 color={color} language={language} post={post} status={status}></Card2>
       
       <Footer
         color={color}
