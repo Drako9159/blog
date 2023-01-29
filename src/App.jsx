@@ -3,6 +3,7 @@ import Wrapper from "./components/Wrapper";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Start from "./views/start/Start";
+import NotFound from "./components/NotFound";
 import About from "./views/About";
 import Blog from "./views/Blog";
 import Home from "./views/Home";
@@ -83,6 +84,7 @@ function App() {
                 />
               }
             ></Route>
+            <Route path="*" element={<NotFound color={color}></NotFound>}></Route>
           </Routes>
         </BrowserRouter>
       </Wrapper>
