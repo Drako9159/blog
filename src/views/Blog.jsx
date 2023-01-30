@@ -8,18 +8,46 @@ export default function Blog({ color, setColor, language, setLanguage }) {
   const [posts, setPosts] = useState([]);
   const [status, setStatus] = useState(0);
 
+  const KEY = "drako9159@gmail.com";
+  const URL = "https://backendblog.fly.dev/api"
+
   useEffect(() => {
-    async function restApi() {
+    async function authLogin() {
+      const response = await fetch(`${URL}/login`, {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin", //"same-origin" //,
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify({ user: KEY, rol: "admin" }),
+      }).then((response) =>
+        setTimeout(() => {
+          restApi(response.headers.get("authorization"));
+        }, 1500)
+      );
+    }
+
+    authLogin();
+
+    async function restApi(token) {
       const response = await fetch(
-        `https://backendblog.fly.dev/api/posts/${language}`
+        `${URL}/posts/${language}`,
+        {
+          method: "GET",
+          mode: "cors",
+          cache: "no-cache",
+          credentials: "same-origin",
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
       );
       const data = await response.json();
       setStatus(response.status);
       setPosts(data.data);
     }
-    setTimeout(() => {
-      restApi();
-    }, 1500);
   }, []);
 
   return (
