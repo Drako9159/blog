@@ -16,19 +16,14 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-
-.containerDay {
-  color: #eff0ff;
-}
-.containerNight {
-  color: #3d3e44;
-}
-/* Container */
-/* Title */
 .title {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.title h3 {
+  margin: 0;
+  font-size: 26px;
 }
 .title .linkTitle {
   cursor: pointer;
@@ -52,18 +47,22 @@
 .title .linkTitle:hover:before {
   max-width: 200px;
 }
+/*
 .titleDay .linkTitle:before {
   background-color: #121213;
 }
 .titleNight .linkTitle:before {
   background-color: #ececec;
 }
+*/
+
+/*
 .titleDay .linkTitle {
   color: #121213;
 }
 .titleNight .linkTitle {
   color: #ececec;
-}
+}*/
 /* Title */
 /* Nav Desktop */
 .nav ul {
@@ -106,7 +105,7 @@
 .navNight .linksDesktop {
   color: #c4c4c4;
 }
-.navNight .linksDesktop:hover {
+.navNight .linksDesktop:hover h3 {
   transition: color 0.6s ease;
   color: #ececec;
 }
@@ -114,10 +113,10 @@
 .navDay .linksDesktop:before {
   background-color: #121213;
 }
-.navDay .linksDesktop {
+.navDay .linksDesktop h3 {
   color: #53545e;
 }
-.navDay .linksDesktop:hover {
+.navDay .linksDesktop:hover h3 {
   transition: color 0.6s ease;
   color: #000000;
 }
@@ -127,6 +126,10 @@
   text-decoration: none;
   cursor: pointer;
 }
+.linksDesktop h3 {
+  margin: 0;
+  font-size: 16px;
+}
 
 /* Active link */
 .nav .activeLinkNight:before {
@@ -135,10 +138,10 @@
 .nav .activeLinkDay:before {
   max-width: 200px;
 }
-.nav .activeLinkNight {
+.nav .activeLinkNight h3 {
   color: #ececec;
 }
-.nav .activeLinkDay {
+.nav .activeLinkDay h3 {
   color: #000000;
 }
 /**/
@@ -192,22 +195,32 @@
   width: 100%;
 }
 .burguerNavNight .linksDesktop {
-  color: #c4c4c4;
   background-color: #4e4e53;
 }
+.burguerNavNight .linksDesktop h3 {
+  color: #c4c4c4;
+}
+
 .burguerNavNight .linksDesktop:hover {
   background-color: #636368;
   transition: background 0.3s ease;
 }
 .burguerNavDay .linksDesktop {
-  color: #3d3e44;
   background-color: #d0d1d6;
+}
+.burguerNavDay .linksDesktop h3 {
+  color: #3d3e44;
 }
 .burguerNavDay .linksDesktop:hover {
   background-color: rgb(96, 96, 102);
   transition: background 0.3s ease;
+  
+}
+.burguerNavDay .linksDesktop:hover h3{
+
   color: #dee1ec;
 }
+
 /* Burguer Button */
 
 /* Buttons */
@@ -254,10 +267,9 @@
   position: relative;
   transform: translateX(12px);
 }
-.pickDayAnimationOn{
+.pickDayAnimationOn {
   animation: day 1s ease;
 }
-
 
 @keyframes day {
   0% {
@@ -284,7 +296,7 @@
   width: 1.5rem;
   height: 1.5rem;
   position: relative;
-  
+
   filter: contrast(1%);
   transform: translateX(-11px);
 }
@@ -559,11 +571,22 @@ span + span {
   color: #ececec;
 }
 @keyframes logo {
-  0%{ background-color: #0aa8cfbd; }
-  20%{ background-color: #FF6708; }
-  40%{ background-color:  #FF6708;}
-  60%{ background-color: #df2007bd; }
-  80%{ background-color: #df2007bd; }
-  100%{ background-color: #0aa8cfbd; }
+  0% {
+    background-color: #0aa8cfbd;
+  }
+  20% {
+    background-color: #ff6708;
+  }
+  40% {
+    background-color: #ff6708;
+  }
+  60% {
+    background-color: #df2007bd;
+  }
+  80% {
+    background-color: #df2007bd;
+  }
+  100% {
+    background-color: #0aa8cfbd;
+  }
 }
-

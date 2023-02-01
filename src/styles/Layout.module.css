@@ -1,18 +1,10 @@
-.containerWhite {
+.container{
   display: flex;
   justify-content: center;
-  background-color: #ffffff;
-  width: 100%;
-  
-  transition: background-color 0.5s ease;
-}
-.containerBlack {
-  display: flex;
-  justify-content: center;
-  background-color: #1f2028;
   width: 100%;
   transition: background-color 0.5s ease;
 }
+
 
 /* width 
 ::-webkit-scrollbar {

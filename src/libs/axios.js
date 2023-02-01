@@ -1,5 +1,16 @@
-import axios from "axios"
+import axios from "axios";
+import { useAuthStore } from "../store/auth";
+const authApi = axios.create({
+  baseURL: "http://localhost:3000",
+  withCredentials: true,
+});
+//insert header in gets
+authApi.interceptors.request.use((config) => {
+  const token = useAuthStore.getState().token;
+  config.headers = {
+    authorization: `Bearer ${token}`,
+  };
+  return config;
+});
 
-export const getPostsRequest = async () => {
-    await axios.get(`https://backendblog.fly.dev/api/posts`)
-}
+export default authApi;

@@ -1,16 +1,16 @@
 import styles from "./Card2.module.css";
 import ChargeAnimation from "../../components/ChargeAnimation";
+import { useThemeStore } from "../../store/theme";
 
-export default function Card1({ color, language, post, status }) {
+export default function Card1({ post, status }) {
+  const themeMode = useThemeStore((state) => state.themeMode);
+  const colorz = useThemeStore((state) => state.colors);
   if (post.length === 0) {
-    return <ChargeAnimation color={color}></ChargeAnimation>;
+    return <ChargeAnimation></ChargeAnimation>;
   }
   if (status === 400) {
     return (
-      <div
-        style={color === "night" ? { color: "#ffffff" } : { color: "#000000" }}
-        className={styles.container}
-      >
+      <div style={colorz.textEnable} className={styles.container}>
         NOT POST FOUND
       </div>
     );
@@ -18,7 +18,7 @@ export default function Card1({ color, language, post, status }) {
   return (
     <div
       className={`${styles.container} ${
-        color === "night" ? styles.containerNight : styles.containerDay
+        themeMode === "night" ? styles.containerNight : styles.containerDay
       }`}
       dangerouslySetInnerHTML={{ __html: post.data }}
     ></div>

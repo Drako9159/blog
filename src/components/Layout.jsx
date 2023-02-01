@@ -1,12 +1,10 @@
 import styles from "../styles/Layout.module.css";
+import { useThemeStore } from "../store/theme";
 
-export default function Layout({ children, color }) {
+export default function Layout({ children }) {
+  const colors = useThemeStore((state) => state.colors);
   return (
-    <div
-      className={
-        color === "night" ? styles.containerBlack : styles.containerWhite
-      }
-    >
+    <div style={colors.layout} className={styles.container}>
       {children}
     </div>
   );

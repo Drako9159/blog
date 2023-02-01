@@ -5,12 +5,16 @@ import pickTwitter from "../assets/icons/footer/twitter.svg";
 import pickCountry from "../assets/icons/footer/idioma.png";
 import { footerEnglish, footerSpanish } from "../languages/Footer";
 import { useParams, useNavigate } from "react-router-dom";
+import { useThemeStore } from "../store/theme";
 
 export default function Footer({ color, language }) {
   const strings = language === "english" ? footerEnglish : footerSpanish;
 
   const checkRute = useParams();
   const navigate = useNavigate();
+
+  const colorf = useThemeStore((state) => state.colors);
+  const themeMode = useThemeStore((state) => state.themeMode)
 
   function handleLanguage(value) {
     /** Return to blog for reload posts  */
@@ -31,22 +35,14 @@ export default function Footer({ color, language }) {
   return (
     <>
       <span className={styles.spanDown}></span>
-      <div
-        className={`${styles.container} ${
-          color === "night" ? styles.containerNight : styles.containerDay
-        }`}
-      >
+      <div className={`${styles.container}`}>
         <div className={styles.socialMedia}>
           <div className={styles.left}>
-            <h2
-              className={color === "night" ? styles.nameNight : styles.nameDay}
-            >
-              {strings.name}
-            </h2>
-            <h2>{strings.legend}</h2>
+            <h2 style={colorf.textEnable}>{strings.name}</h2>
+            <h2 style={colorf.textDisable} >{strings.legend}</h2>
             <div
               className={`${styles.icons} ${
-                color === "night" ? styles.iconsNight : ""
+                themeMode === "night" ? styles.iconsNight : ""
               }`}
             >
               <a target={"_blank"} href="https://github.com/Drako9159">
@@ -67,13 +63,13 @@ export default function Footer({ color, language }) {
         </div>
 
         <div className={styles.info}>
-          <h2 className={styles.laster}>{strings.rights}</h2>
+          <p style={colorf.textDisable} className={styles.laster}>{strings.rights}</p>
           <div className={styles.country}>
             <select
               onChange={(e) => handleLanguage(e.target.value)}
               value={localStorage.getItem("language")}
               className={`${styles.selector} ${
-                color === "night" ? styles.selectorNight : styles.selectorDay
+                themeMode === "night" ? styles.selectorNight : styles.selectorDay
               }`}
             >
               <option value={"spanish"}>Spanish</option>
@@ -82,7 +78,7 @@ export default function Footer({ color, language }) {
             <img
               src={pickCountry}
               alt="world-language"
-              className={`${color === "night" ? styles.pickCountryNight : ""}`}
+              className={`${themeMode === "night" ? styles.pickCountryNight : ""}`}
             ></img>
           </div>
         </div>

@@ -4,16 +4,26 @@ import pickNight from "../assets/icons/sunWhite.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { headerSpanish, headerEnglish } from "../languages/Header";
+import { useThemeStore } from "../store/theme";
+import { useEffect } from "react";
 
-export default function Header({ color, setColor, activeLink, language }) {
+export default function Header({ activeLink, language }) {
   const [btn, setBtn] = useState(styles.notActive);
   const [isActiveButton, setActiveButton] = useState(styles.burguerNotActive);
   const [animationDay, setAnimationDay] = useState("");
   const [animationNight, setAnimationNight] = useState("");
 
+  const colorf = useThemeStore((state) => state.colors);
+  //const themeMode = useThemeStore((state) => state.themeMode);
   const strings = language === "english" ? headerEnglish : headerSpanish;
-  
-  
+  const getLibraryColors = useThemeStore((state) => state.libraryColors);
+  const setTheme = useThemeStore((state) => state.setTheme);
+  const setColors = useThemeStore((state) => state.setColors);
+  /////
+
+  //setColors({ colors: getLibraryColors.day })
+  const themeMode = useThemeStore.getState().themeMode
+
   function handleClickBurguer(e) {
     if (isActiveButton === styles.burguerNotActive) {
       setActiveButton(styles.burguerActive);
@@ -27,89 +37,89 @@ export default function Header({ color, setColor, activeLink, language }) {
   function handleTheme() {
     setAnimationDay(styles.pickDayAnimationOn);
     setAnimationNight(styles.pickNightAnimationOn);
-    if (color === "night") {
-      setColor("day");
-
-      localStorage.setItem("theme", "day");
+    if (themeMode === "night") {
+      setTheme({ themeMode: "day" });
+      localStorage.setItem("themeMode", "day");
+      setColors({
+        colors: getLibraryColors.day,
+      });
     } else {
-      setColor("night");
-
-      localStorage.setItem("theme", "night");
+      setTheme({ themeMode: "night" });
+      localStorage.setItem("themeMode", "night");
+      setColors({
+        colors: getLibraryColors.night,
+      });
     }
   }
 
   return (
-    <div
-      className={`${styles.container} ${
-        color === "night" ? styles.containerNight : styles.containerDay
-      }`}
-    >
+    <div className={styles.container}>
       <div
         className={`${styles.title} ${
-          color === "night" ? styles.titleNight : styles.titleDay
+          themeMode === "night" ? styles.titleNight : styles.titleDay
         }`}
       >
         <Link className={styles.linkTitle} to="/">
-          {strings.home}
+          <h3 style={colorf.textEnable}>{strings.home}</h3>
         </Link>
       </div>
       <div
         className={`${styles.nav} ${
-          color === "night" ? styles.navNight : styles.navDay
+          themeMode === "night" ? styles.navNight : styles.navDay
         }`}
       >
         <ul>
           <li>
             <Link
-             className={`${styles.linksDesktop}  ${
-              activeLink === "blog" && color === "night"
-                ? styles.activeLinkNight
-                : activeLink === "blog" && color === "day"
-                ? styles.activeLinkDay
-                : ""
-            } `}
-            to="/blog"
+              className={`${styles.linksDesktop}  ${
+                activeLink === "blog" && themeMode === "night"
+                  ? styles.activeLinkNight
+                  : activeLink === "blog" && themeMode === "day"
+                  ? styles.activeLinkDay
+                  : ""
+              } `}
+              to="/blog"
             >
-              {strings.nav[0]}
+              <h3>{strings.nav[0]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              {strings.nav[1]}
+              <h3>{strings.nav[1]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              {strings.nav[2]}
+              <h3> {strings.nav[2]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              {strings.nav[3]}
+              <h3>{strings.nav[3]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              {strings.nav[4]}
+              <h3>{strings.nav[4]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              {strings.nav[5]}
+              <h3>{strings.nav[5]}</h3>
             </Link>
           </li>
           <li>
             <Link
               className={`${styles.linksDesktop}  ${
-                activeLink === "about" && color === "night"
+                activeLink === "about" && themeMode === "night"
                   ? styles.activeLinkNight
-                  : activeLink === "about" && color === "day"
+                  : activeLink === "about" && themeMode === "day"
                   ? styles.activeLinkDay
                   : ""
               } `}
               to="/about"
             >
-              {strings.nav[6]}
+              <h3> {strings.nav[6]}</h3>
             </Link>
           </li>
         </ul>
@@ -118,7 +128,7 @@ export default function Header({ color, setColor, activeLink, language }) {
         <div className={styles.iconDayOrNigth}>
           <div
             className={`${styles.dayOrNight} ${
-              color === "night" ? styles.setNight : styles.setDay
+              themeMode === "night" ? styles.setNight : styles.setDay
             }`}
             onClick={handleTheme}
           >
@@ -126,14 +136,14 @@ export default function Header({ color, setColor, activeLink, language }) {
               className={
                 /////////////////////////////////////
                 `${styles.pickDayAnimation} ${
-                  color === "night" ? styles.pickDay : animationDay
+                  themeMode === "night" ? styles.pickDay : animationDay
                 }`
               }
               src={pickDay}
             ></img>
             <img
               className={` ${styles.pickNightAnimation} ${
-                color === "day" ? styles.pickNight : animationNight
+                themeMode === "day" ? styles.pickNight : animationNight
               }`}
               src={pickNight}
             ></img>
@@ -142,7 +152,7 @@ export default function Header({ color, setColor, activeLink, language }) {
 
         <div
           className={`${styles.containerBtn} ${
-            color === "night"
+            themeMode === "night"
               ? styles.containerBtnNight
               : styles.containerBtnDay
           }`}
@@ -170,7 +180,7 @@ export default function Header({ color, setColor, activeLink, language }) {
 
             <use
               xlinkHref={"#circle"}
-              stroke={`${color === "night" ? "#FF6708" : "#812567"}`}
+              stroke={`${themeMode === "night" ? "#FF6708" : "#812567"}`}
               strokeDasharray={"0,2.09,8.38,30"}
             />
             <use
@@ -186,7 +196,7 @@ export default function Header({ color, setColor, activeLink, language }) {
           </svg>
           <p
             className={`${styles.logo} ${
-              color === "night" ? styles.logoNight : styles.logoDay
+              themeMode === "night" ? styles.logoNight : styles.logoDay
             }`}
           >
             a
@@ -196,7 +206,7 @@ export default function Header({ color, setColor, activeLink, language }) {
 
       <div
         className={`${styles.burguerNav} ${isActiveButton} ${
-          color === "night" ? styles.burguerNavNight : styles.burguerNavDay
+          themeMode === "night" ? styles.burguerNavNight : styles.burguerNavDay
         }`}
       >
         <ul>
@@ -205,19 +215,19 @@ export default function Header({ color, setColor, activeLink, language }) {
               <div className={styles.iconDayOrNigthMobile}>
                 <div
                   className={`${styles.dayOrNight} ${
-                    color === "night" ? styles.setNight : styles.setDay
+                    themeMode === "night" ? styles.setNight : styles.setDay
                   }`}
                   onClick={handleTheme}
                 >
                   <img
                     className={`${styles.pickDayAnimation} ${
-                      color === "night" ? styles.pickDay : animationDay
+                      themeMode === "night" ? styles.pickDay : animationDay
                     }`}
                     src={pickDay}
                   ></img>
                   <img
                     className={` ${styles.pickNightAnimation} ${
-                      color === "day" ? styles.pickNight : animationNight
+                      themeMode === "day" ? styles.pickNight : animationNight
                     }`}
                     src={pickNight}
                   ></img>
@@ -228,37 +238,37 @@ export default function Header({ color, setColor, activeLink, language }) {
 
           <li>
             <Link className={styles.linksDesktop} to="/blog">
-              {strings.nav[0]}
+              <h3>{strings.nav[0]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              {strings.nav[1]}
+              <h3>{strings.nav[1]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              {strings.nav[2]}
+              <h3> {strings.nav[2]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              {strings.nav[3]}
+              <h3> {strings.nav[3]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              {strings.nav[4]}
+              <h3> {strings.nav[4]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              {strings.nav[5]}
+              <h3> {strings.nav[5]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/about">
-              {strings.nav[6]}
+              <h3>{strings.nav[6]}</h3>
             </Link>
           </li>
         </ul>
