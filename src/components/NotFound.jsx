@@ -4,22 +4,11 @@ import { Link } from "react-router-dom";
 import { useThemeStore } from "../store/theme";
 
 export default function NotFound() {
-  const themeMode = useThemeStore((state) => state.themeMode);
+  const colorz = useThemeStore((state) => state.colors);
   return (
-    <div
-      style={
-        themeMode === "night" ? { color: "#ffffff" } : { color: "#000000" }
-      }
-      className={styles.container}
-    >
+    <div style={colorz.textDisable} className={styles.container}>
       <h2>404 Not Found</h2>
-      <Link
-        className={styles.button}
-        style={
-          themeMode === "night" ? { color: "#ffffff" } : { color: "#000000" }
-        }
-        to="/"
-      >
+      <Link className={styles.button} style={colorz.textDisable} to="/">
         Volver
       </Link>
     </div>

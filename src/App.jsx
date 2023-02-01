@@ -25,13 +25,11 @@ function App() {
     ? localStorage.setItem("themeMode", "day")
     : "";
 
-  const [color, setColor] = useState(localStorage.getItem("theme"));
   const [language, setLanguage] = useState(localStorage.getItem("language"));
 
   const getLibraryColors = useThemeStore((state) => state.libraryColors);
   const setColors = useThemeStore((state) => state.setColors);
   const setTheme = useThemeStore((state) => state.setTheme);
-  
 
   setTheme({ themeMode: localStorage.getItem("themeMode") });
   setColors({
@@ -49,52 +47,21 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={
-                <Home
-                  color={color}
-                  setColor={setColor}
-                  language={language}
-                  setLanguage={setLanguage}
-                />
-              }
+              element={<Home language={language} setLanguage={setLanguage} />}
             ></Route>
             <Route
               path="/about"
-              element={
-                <About
-                  color={color}
-                  setColor={setColor}
-                  language={language}
-                  setLanguage={setLanguage}
-                />
-              }
+              element={<About language={language} setLanguage={setLanguage} />}
             ></Route>
             <Route
               path="/blog"
-              element={
-                <Blog
-                  color={color}
-                  setColor={setColor}
-                  language={language}
-                  setLanguage={setLanguage}
-                />
-              }
+              element={<Blog language={language} setLanguage={setLanguage} />}
             ></Route>
             <Route
               path="/blog/:id"
-              element={
-                <Post
-                  color={color}
-                  setColor={setColor}
-                  language={language}
-                  setLanguage={setLanguage}
-                />
-              }
+              element={<Post language={language} setLanguage={setLanguage} />}
             ></Route>
-            <Route
-              path="*"
-              element={<NotFound color={color}></NotFound>}
-            ></Route>
+            <Route path="*" element={<NotFound></NotFound>}></Route>
           </Routes>
         </BrowserRouter>
       </Wrapper>

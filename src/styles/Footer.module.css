@@ -91,12 +91,13 @@
   font-size: 17px;
   cursor: pointer;
   outline: none;
+  color: #7f7f85;
 }
 .selector option {
   padding: 10px;
   border: none;
   outline: none;
-}
+}/*
 .selectorDay {
   color: #4e4e4e;
   background-color: #ffffff;
@@ -104,4 +105,4 @@
 .selectorNight {
   color: #7f7f85;
   background-color: #1f2028;
-}
+}*/

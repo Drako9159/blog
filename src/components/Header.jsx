@@ -5,7 +5,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { headerSpanish, headerEnglish } from "../languages/Header";
 import { useThemeStore } from "../store/theme";
-import { useEffect } from "react";
 
 export default function Header({ activeLink, language }) {
   const [btn, setBtn] = useState(styles.notActive);
@@ -13,8 +12,7 @@ export default function Header({ activeLink, language }) {
   const [animationDay, setAnimationDay] = useState("");
   const [animationNight, setAnimationNight] = useState("");
 
-  const colorf = useThemeStore((state) => state.colors);
-  //const themeMode = useThemeStore((state) => state.themeMode);
+  const themeMode = useThemeStore((state) => state.themeMode);
   const strings = language === "english" ? headerEnglish : headerSpanish;
   const getLibraryColors = useThemeStore((state) => state.libraryColors);
   const setTheme = useThemeStore((state) => state.setTheme);
@@ -22,8 +20,9 @@ export default function Header({ activeLink, language }) {
   /////
 
   //setColors({ colors: getLibraryColors.day })
-  const themeMode = useThemeStore.getState().themeMode
-
+  //const themeMode = useThemeStore.getState().themeMode;
+  const colorf = useThemeStore((state) => state.colors);
+  
   function handleClickBurguer(e) {
     if (isActiveButton === styles.burguerNotActive) {
       setActiveButton(styles.burguerActive);
@@ -180,17 +179,17 @@ export default function Header({ activeLink, language }) {
 
             <use
               xlinkHref={"#circle"}
-              stroke={`${themeMode === "night" ? "#FF6708" : "#812567"}`}
+              stroke={colorf.colorLogo.a}
               strokeDasharray={"0,2.09,8.38,30"}
             />
             <use
               xlinkHref={"#circle"}
-              stroke="#0aa8cfbd"
+              stroke={colorf.colorLogo.b}
               strokeDasharray={"0,10.47,8.38,30"}
             />
             <use
               xlinkHref={"#circle"}
-              stroke="#df2007bd"
+              stroke={colorf.colorLogo.c}
               strokeDasharray={"2.09,16.75,6.3"}
             />
           </svg>
