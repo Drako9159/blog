@@ -35,7 +35,10 @@ function App() {
   //login in aplication app active
   useEffect(() => {
     async function loginApi() {
-      const response = await loginRequest("drako9159@gmail.com", "admin");
+      const response = await loginRequest(
+        import.meta.env.VITE_USER_KEY,
+        import.meta.env.VITE_USER_ROL
+      );
       const token = response.headers.authorization;
       setToken({ token: token });
     }

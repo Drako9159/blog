@@ -3,7 +3,7 @@ import { useAuthStore } from "../store/auth";
 
 const authApi = axios.create({
   //Configuration
-  baseURL: "https://backendblog.fly.dev/api",
+  baseURL: import.meta.env.VITE_URL_PRODUCTION,
   //timeout: 8000,
   /*headers: {
     Accept: "application/json",
@@ -24,7 +24,7 @@ const authApi = axios.create({
 
 authApi.interceptors.request.use((config) => {
   const token = useAuthStore.getState().token;
-  
+
   config.headers = {
     authorization: `Bearer ${token.token}`,
     //"x-drako-help": "la mejor oportunidad para aprender es enseñar"
