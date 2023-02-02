@@ -5,10 +5,11 @@ import { useThemeStore } from "../../store/theme";
 export default function Card1({ post, status }) {
   const themeMode = useThemeStore((state) => state.themeMode);
   const colorz = useThemeStore((state) => state.colors);
-  if (post.length === 0) {
+
+  if (status === 0) {
     return <ChargeAnimation></ChargeAnimation>;
   }
-  if (status === 400) {
+  if (status >= 400) {
     return (
       <div style={colorz.textEnable} className={styles.container}>
         NOT POST FOUND

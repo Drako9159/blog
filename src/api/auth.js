@@ -1,8 +1,6 @@
 import axios from "../libs/axios";
+//import axios from "axios";
 
-export async function loginRequest(email, rol) {
-  return axios.post("/login", { email, rol });
-}
-export async function profileRequest() {
-  return await axios.get("/posts");
+export async function loginRequest(user, rol) {
+  return await axios.post("/login", { user, rol });
 }

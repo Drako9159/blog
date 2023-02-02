@@ -1,7 +1,7 @@
 import Layout from "./components/Layout";
 import Wrapper from "./components/Wrapper";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 //import Start from "./views/start/Start";
 import NotFound from "./components/NotFound";
 import About from "./views/About";
@@ -11,6 +11,9 @@ import Post from "./views/Post";
 import ScrollToTop from "./utils/ScrollToTop";
 
 import { useThemeStore } from "./store/theme";
+import { useAuthStore } from "./store/auth";
+import { loginRequest } from "./api/auth";
+
 
 function App() {
   localStorage.getItem("theme") === null
@@ -30,7 +33,8 @@ function App() {
   const getLibraryColors = useThemeStore((state) => state.libraryColors);
   const setColors = useThemeStore((state) => state.setColors);
   const setTheme = useThemeStore((state) => state.setTheme);
-
+  const setToken = useAuthStore((state) => state.setToken);
+  //Reload theme inmediately
   setTheme({ themeMode: localStorage.getItem("themeMode") });
   setColors({
     colors:
@@ -38,6 +42,15 @@ function App() {
         ? getLibraryColors.day
         : getLibraryColors.night,
   });
+  //login in aplication app active
+  useEffect(() => {
+    async function loginApi() {
+      const response = await loginRequest("drako9159@gmail.com", "admin");
+      const token = response.headers.authorization;
+      setToken({ token: token });
+    }
+    loginApi();
+  }, []);
 
   return (
     <Layout>

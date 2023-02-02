@@ -3,14 +3,20 @@ import { Link } from "react-router-dom";
 import ChargeAnimation from "../../components/ChargeAnimation";
 import { useThemeStore } from "../../store/theme";
 
+
 export default function Card2({ posts, status }) {
   const colorz = useThemeStore((state) => state.colors);
-  if (posts.length === 0) {
+
+  if (status === 0) {
     return <ChargeAnimation></ChargeAnimation>;
   }
 
-  if (status === 400) {
-    return <div>NOT POST FOUND</div>;
+  if (status >= 400) {
+    return (
+      <div style={colorz.textEnable} className={styles.container}>
+        NOT POSTS FOUND
+      </div>
+    );
   }
 
   return (
