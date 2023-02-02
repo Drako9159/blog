@@ -13,19 +13,15 @@ import ScrollToTop from "./utils/ScrollToTop";
 import { useThemeStore } from "./store/theme";
 import { useAuthStore } from "./store/auth";
 import { loginRequest } from "./api/auth";
-
+import { useLanguageStore } from "./store/language";
 
 function App() {
-  localStorage.getItem("theme") === null
-    ? localStorage.setItem("theme", "day")
-    : "";
-
-  localStorage.getItem("language") === null
-    ? localStorage.setItem("language", "english")
-    : "";
-
   localStorage.getItem("themeMode") === null
     ? localStorage.setItem("themeMode", "day")
+    : "";
+
+  localStorage.getItem("languageMode") === null
+    ? localStorage.setItem("languageMode", "english")
     : "";
 
   const [language, setLanguage] = useState(localStorage.getItem("language"));
@@ -34,7 +30,11 @@ function App() {
   const setColors = useThemeStore((state) => state.setColors);
   const setTheme = useThemeStore((state) => state.setTheme);
   const setToken = useAuthStore((state) => state.setToken);
+  const setLanguageMode = useLanguageStore((state) => state.setLanguage);
+
+  setLanguageMode({ language: localStorage.getItem("languageMode") });
   //Reload theme inmediately
+
   setTheme({ themeMode: localStorage.getItem("themeMode") });
   setColors({
     colors:

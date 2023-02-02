@@ -3,17 +3,20 @@ import pickDay from "../assets/icons/sunAll.png";
 import pickNight from "../assets/icons/sunWhite.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { headerSpanish, headerEnglish } from "../languages/Header";
 import { useThemeStore } from "../store/theme";
+import { useLanguageStore } from "../store/language";
+import languageLibrary from "../languages/languageLibrary";
 
-export default function Header({ activeLink, language }) {
+export default function Header({ activeLink }) {
+  const language = useLanguageStore((state) => state.language);
   const [btn, setBtn] = useState(styles.notActive);
   const [isActiveButton, setActiveButton] = useState(styles.burguerNotActive);
   const [animationDay, setAnimationDay] = useState("");
   const [animationNight, setAnimationNight] = useState("");
 
   const themeMode = useThemeStore((state) => state.themeMode);
-  const strings = language === "english" ? headerEnglish : headerSpanish;
+ const strings = languageLibrary(language)
+  
   const getLibraryColors = useThemeStore((state) => state.libraryColors);
   const setTheme = useThemeStore((state) => state.setTheme);
   const setColors = useThemeStore((state) => state.setColors);
@@ -22,7 +25,7 @@ export default function Header({ activeLink, language }) {
   //setColors({ colors: getLibraryColors.day })
   //const themeMode = useThemeStore.getState().themeMode;
   const colorf = useThemeStore((state) => state.colors);
-  
+
   function handleClickBurguer(e) {
     if (isActiveButton === styles.burguerNotActive) {
       setActiveButton(styles.burguerActive);
@@ -59,7 +62,7 @@ export default function Header({ activeLink, language }) {
         }`}
       >
         <Link className={styles.linkTitle} to="/">
-          <h3 style={colorf.textEnable}>{strings.home}</h3>
+          <h3 style={colorf.textEnable}>{strings.header.home}</h3>
         </Link>
       </div>
       <div
@@ -79,32 +82,32 @@ export default function Header({ activeLink, language }) {
               } `}
               to="/blog"
             >
-              <h3>{strings.nav[0]}</h3>
+              <h3>{strings.header.nav[0]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              <h3>{strings.nav[1]}</h3>
+              <h3>{strings.header.nav[1]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              <h3> {strings.nav[2]}</h3>
+              <h3> {strings.header.nav[2]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              <h3>{strings.nav[3]}</h3>
+              <h3>{strings.header.nav[3]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              <h3>{strings.nav[4]}</h3>
+              <h3>{strings.header.nav[4]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              <h3>{strings.nav[5]}</h3>
+              <h3>{strings.header.nav[5]}</h3>
             </Link>
           </li>
           <li>
@@ -118,7 +121,7 @@ export default function Header({ activeLink, language }) {
               } `}
               to="/about"
             >
-              <h3> {strings.nav[6]}</h3>
+              <h3> {strings.header.nav[6]}</h3>
             </Link>
           </li>
         </ul>
@@ -237,37 +240,37 @@ export default function Header({ activeLink, language }) {
 
           <li>
             <Link className={styles.linksDesktop} to="/blog">
-              <h3>{strings.nav[0]}</h3>
+              <h3>{strings.header.nav[0]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              <h3>{strings.nav[1]}</h3>
+              <h3>{strings.header.nav[1]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              <h3> {strings.nav[2]}</h3>
+              <h3> {strings.header.nav[2]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              <h3> {strings.nav[3]}</h3>
+              <h3> {strings.header.nav[3]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              <h3> {strings.nav[4]}</h3>
+              <h3> {strings.header.nav[4]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/">
-              <h3> {strings.nav[5]}</h3>
+              <h3> {strings.header.nav[5]}</h3>
             </Link>
           </li>
           <li>
             <Link className={styles.linksDesktop} to="/about">
-              <h3>{strings.nav[6]}</h3>
+              <h3>{strings.header.nav[6]}</h3>
             </Link>
           </li>
         </ul>

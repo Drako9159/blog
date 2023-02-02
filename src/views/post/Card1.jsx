@@ -1,14 +1,16 @@
 import styles from "./Card1.module.css";
 import pickArrow from "../../assets/icons/arrowDown.png";
 import { Link } from "react-router-dom";
-
-import { card1English, card1Spanish } from "../../languages/Post";
+import languageLibrary from "../../languages/languageLibrary";
 import { useThemeStore } from "../../store/theme";
+import { useLanguageStore } from "../../store/language";
 
-export default function Card1({ language }) {
+export default function Card1() {
+  const language = useLanguageStore((state) => state.language);
   const themeMode = useThemeStore((state) => state.themeMode);
   const colorz = useThemeStore((state) => state.colors);
-  const strings = language === "english" ? card1English : card1Spanish;
+  const strings = languageLibrary(language)
+  
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -23,7 +25,7 @@ export default function Card1({ language }) {
               src={pickArrow}
             ></img>
           </div>
-          <p style={colorz.textEnable}>{strings.text1}</p>
+          <p style={colorz.textEnable}>{strings.posts.text1}</p>
         </Link>
       </div>
       <div className={styles.right}>

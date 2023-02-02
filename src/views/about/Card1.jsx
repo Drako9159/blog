@@ -1,12 +1,16 @@
 import styles from "./Card1.module.css";
-import { card1English, card1Spanish } from "../../languages/About";
 import { useThemeStore } from "../../store/theme";
+import { useLanguageStore } from "../../store/language";
+import languageLibrary from "../../languages/languageLibrary";
 
-export default function Card1({ language }) {
+export default function Card1() {
+  const language = useLanguageStore((state) => state.language)
 
   const colorz = useThemeStore((state) => state.colors)
 
-  const strings = language === "english" ? card1English : card1Spanish;
+  //const strings = language === "english" ? card1English : card1Spanish;
+  const strings = languageLibrary(language)
+  
   return (
     <div
     
@@ -14,10 +18,10 @@ export default function Card1({ language }) {
     >
       <div className={styles.left}>
         <h1 style={colorz.textEnable} className={styles.animation1}>
-          {strings.text1} <br></br>
+          {strings.about.text1} <br></br>
           
         </h1>
-        <h1 style={colorz.textDisable} className={styles.animation2}>{strings.text2}</h1>
+        <h1 style={colorz.textDisable} className={styles.animation2}>{strings.about.text2}</h1>
       </div>
       <div className={styles.right}>
         <div className={styles.logotipo}>

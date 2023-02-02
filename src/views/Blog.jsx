@@ -4,9 +4,10 @@ import Card1 from "./blog/Card1";
 import Card2 from "./blog/Card2";
 import { useState, useEffect } from "react";
 import { getPostsEnglish, getPostsSpanish } from "../api/posts";
-import { useErrorStore } from "../store/errors";
+import { useLanguageStore } from "../store/language";
 
-export default function Blog({ language, setLanguage }) {
+export default function Blog() {
+  const language = useLanguageStore((state) => state.language);
   const [posts, setPosts] = useState([]);
   const [status, setStatus] = useState(0);
 
@@ -21,7 +22,6 @@ export default function Blog({ language, setLanguage }) {
           await getPostsEnglish().then((response) => {
             setPosts(response.data.data), setStatus(response.status);
           });
-          //if (res) setStatus(res.response.reques);
         }
       } catch (error) {
         console.log(error);
@@ -35,10 +35,10 @@ export default function Blog({ language, setLanguage }) {
 
   return (
     <>
-      <Header activeLink={"blog"} language={language}></Header>
-      <Card1 language={language}></Card1>
-      <Card2 language={language} posts={posts} status={status}></Card2>
-      <Footer language={language} setLanguage={setLanguage}></Footer>
+      <Header activeLink={"blog"}></Header>
+      <Card1></Card1>
+      <Card2 posts={posts} status={status}></Card2>
+      <Footer></Footer>
     </>
   );
 }

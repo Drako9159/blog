@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getPost } from "../api/posts";
 
-export default function Post({ language, setLanguage }) {
+export default function Post() {
   const routeParams = useParams();
   const [post, setPost] = useState([]);
   const [status, setStatus] = useState(0);
@@ -29,10 +29,10 @@ export default function Post({ language, setLanguage }) {
 
   return (
     <>
-      <Header activeLink={"blog"} language={language}></Header>
-      <Card1 language={language}></Card1>
-      <Card2 language={language} post={post} status={status}></Card2>
-      <Footer language={language} setLanguage={setLanguage}></Footer>
+      <Header activeLink={"blog"}></Header>
+      <Card1></Card1>
+      <Card2 post={post} status={status}></Card2>
+      <Footer></Footer>
     </>
   );
 }

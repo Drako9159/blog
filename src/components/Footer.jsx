@@ -3,18 +3,21 @@ import pickGithub from "../assets/icons/footer/github.svg";
 import pickLinkedin from "../assets/icons/footer/linkedin.svg";
 import pickTwitter from "../assets/icons/footer/twitter.svg";
 import pickCountry from "../assets/icons/footer/idioma.png";
-import { footerEnglish, footerSpanish } from "../languages/Footer";
 import { useParams, useNavigate } from "react-router-dom";
 import { useThemeStore } from "../store/theme";
+import { useLanguageStore } from "../store/language";
+import languageLibrary from "../languages/languageLibrary";
 
-export default function Footer({ language }) {
-  const strings = language === "english" ? footerEnglish : footerSpanish;
+export default function Footer() {
+  const language = useLanguageStore((state) => state.language);
+  const strings = languageLibrary(language)
 
   const checkRute = useParams();
   const navigate = useNavigate();
 
   const colorf = useThemeStore((state) => state.colors);
   const themeMode = useThemeStore((state) => state.themeMode);
+  const setLanguage = useLanguageStore((state) => state.setLanguage);
 
   function handleLanguage(value) {
     /** Return to blog for reload posts  */
@@ -24,22 +27,26 @@ export default function Footer({ language }) {
         returnPage.split("-").pop() === "spanish" ||
         returnPage.split("-").pop() === "english"
       ) {
+        //return to blog
         navigate("/blog");
       }
     }
     localStorage.setItem("language", `${value}`);
+    localStorage.setItem("languageMode", `${value}`);
+    setLanguage({ language: value });
 
+    // reload page
     window.location.reload(false);
   }
-
+  //console.log(getLanguage);
   return (
     <>
       <span className={styles.spanDown}></span>
       <div className={`${styles.container}`}>
         <div className={styles.socialMedia}>
           <div className={styles.left}>
-            <h2 style={colorf.textEnable}>{strings.name}</h2>
-            <h2 style={colorf.textDisable}>{strings.legend}</h2>
+            <h2 style={colorf.textEnable}>{strings.footer.name}</h2>
+            <h2 style={colorf.textDisable}>{strings.footer.legend}</h2>
             <div
               className={`${styles.icons} ${
                 themeMode === "night" ? styles.iconsNight : ""
@@ -63,13 +70,13 @@ export default function Footer({ language }) {
         </div>
 
         <div className={styles.info}>
-          <p style={colorf.textDisable}  className={styles.laster}>
-            {strings.rights}
+          <p style={colorf.textDisable} className={styles.laster}>
+            {strings.footer.rights}
           </p>
           <div className={styles.country}>
             <select
               onChange={(e) => handleLanguage(e.target.value)}
-              value={localStorage.getItem("language")}
+              value={language}
               className={`${styles.selector}`}
               style={colorf.layout}
             >
