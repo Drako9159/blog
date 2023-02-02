@@ -1,7 +1,7 @@
 import Layout from "./components/Layout";
 import Wrapper from "./components/Wrapper";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 //import Start from "./views/start/Start";
 import NotFound from "./components/NotFound";
 import About from "./views/About";
@@ -24,10 +24,6 @@ function App() {
     ? localStorage.setItem("languageMode", "english")
     : "";
 
-  const [language, setLanguage] = useState(localStorage.getItem("language"));
-
-  const getLibraryColors = useThemeStore((state) => state.libraryColors);
-  const setColors = useThemeStore((state) => state.setColors);
   const setTheme = useThemeStore((state) => state.setTheme);
   const setToken = useAuthStore((state) => state.setToken);
   const setLanguageMode = useLanguageStore((state) => state.setLanguage);
@@ -36,12 +32,6 @@ function App() {
   //Reload theme inmediately
 
   setTheme({ themeMode: localStorage.getItem("themeMode") });
-  setColors({
-    colors:
-      localStorage.getItem("themeMode") === "day"
-        ? getLibraryColors.day
-        : getLibraryColors.night,
-  });
   //login in aplication app active
   useEffect(() => {
     async function loginApi() {
@@ -58,22 +48,10 @@ function App() {
         <BrowserRouter>
           <ScrollToTop></ScrollToTop>
           <Routes>
-            <Route
-              path="/"
-              element={<Home language={language} setLanguage={setLanguage} />}
-            ></Route>
-            <Route
-              path="/about"
-              element={<About language={language} setLanguage={setLanguage} />}
-            ></Route>
-            <Route
-              path="/blog"
-              element={<Blog language={language} setLanguage={setLanguage} />}
-            ></Route>
-            <Route
-              path="/blog/:id"
-              element={<Post language={language} setLanguage={setLanguage} />}
-            ></Route>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/blog" element={<Blog />}></Route>
+            <Route path="/blog/:id" element={<Post />}></Route>
             <Route path="*" element={<NotFound></NotFound>}></Route>
           </Routes>
         </BrowserRouter>

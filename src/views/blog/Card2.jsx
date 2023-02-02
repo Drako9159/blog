@@ -2,10 +2,11 @@ import styles from "./Card2.module.css";
 import { Link } from "react-router-dom";
 import ChargeAnimation from "../../components/ChargeAnimation";
 import { useThemeStore } from "../../store/theme";
-
+import themeLibrary from "../../themes/themeLibrary";
 
 export default function Card2({ posts, status }) {
-  const colorz = useThemeStore((state) => state.colors);
+  const theme = useThemeStore((state) => state.themeMode);
+  const color = themeLibrary(theme);
 
   if (status === 0) {
     return <ChargeAnimation></ChargeAnimation>;
@@ -13,7 +14,7 @@ export default function Card2({ posts, status }) {
 
   if (status >= 400) {
     return (
-      <div style={colorz.textEnable} className={styles.container}>
+      <div style={color.textEnable} className={styles.container}>
         NOT POSTS FOUND
       </div>
     );
@@ -34,9 +35,9 @@ export default function Card2({ posts, status }) {
                 ></img>
               </div>
               <div className={styles.body}>
-                <p style={colorz.textDisable}>{e.createdAt}</p>
+                <p style={color.textDisable}>{e.createdAt}</p>
               </div>
-              <div style={colorz.textEnable} className={`${styles.footer}`}>
+              <div style={color.textEnable} className={`${styles.footer}`}>
                 <h2>{e.title}</h2>
               </div>
             </div>

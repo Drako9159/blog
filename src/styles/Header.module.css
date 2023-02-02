@@ -15,6 +15,9 @@
   justify-content: space-between;
   -webkit-tap-highlight-color: transparent;
 }
+.lol{
+  color: #ac8400;
+}
 
 .title {
   display: flex;

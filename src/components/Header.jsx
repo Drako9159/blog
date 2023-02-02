@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useThemeStore } from "../store/theme";
 import { useLanguageStore } from "../store/language";
 import languageLibrary from "../languages/languageLibrary";
+import themeLibrary from "../themes/themeLibrary";
 
 export default function Header({ activeLink }) {
   const language = useLanguageStore((state) => state.language);
@@ -14,17 +15,11 @@ export default function Header({ activeLink }) {
   const [animationDay, setAnimationDay] = useState("");
   const [animationNight, setAnimationNight] = useState("");
 
-  const themeMode = useThemeStore((state) => state.themeMode);
- const strings = languageLibrary(language)
-  
-  const getLibraryColors = useThemeStore((state) => state.libraryColors);
+  const theme = useThemeStore((state) => state.themeMode);
+  const strings = languageLibrary(language);
   const setTheme = useThemeStore((state) => state.setTheme);
-  const setColors = useThemeStore((state) => state.setColors);
-  /////
 
-  //setColors({ colors: getLibraryColors.day })
-  //const themeMode = useThemeStore.getState().themeMode;
-  const colorf = useThemeStore((state) => state.colors);
+  const color = themeLibrary(theme);
 
   function handleClickBurguer(e) {
     if (isActiveButton === styles.burguerNotActive) {
@@ -39,18 +34,12 @@ export default function Header({ activeLink }) {
   function handleTheme() {
     setAnimationDay(styles.pickDayAnimationOn);
     setAnimationNight(styles.pickNightAnimationOn);
-    if (themeMode === "night") {
+    if (theme === "night") {
       setTheme({ themeMode: "day" });
       localStorage.setItem("themeMode", "day");
-      setColors({
-        colors: getLibraryColors.day,
-      });
     } else {
       setTheme({ themeMode: "night" });
       localStorage.setItem("themeMode", "night");
-      setColors({
-        colors: getLibraryColors.night,
-      });
     }
   }
 
@@ -58,25 +47,25 @@ export default function Header({ activeLink }) {
     <div className={styles.container}>
       <div
         className={`${styles.title} ${
-          themeMode === "night" ? styles.titleNight : styles.titleDay
+          theme === "night" ? styles.titleNight : styles.titleDay
         }`}
       >
         <Link className={styles.linkTitle} to="/">
-          <h3 style={colorf.textEnable}>{strings.header.home}</h3>
+          <h3 style={color.textEnable}>{strings.header.home}</h3>
         </Link>
       </div>
       <div
         className={`${styles.nav} ${
-          themeMode === "night" ? styles.navNight : styles.navDay
+          theme === "night" ? styles.navNight : styles.navDay
         }`}
       >
         <ul>
           <li>
             <Link
               className={`${styles.linksDesktop}  ${
-                activeLink === "blog" && themeMode === "night"
+                activeLink === "blog" && theme === "night"
                   ? styles.activeLinkNight
-                  : activeLink === "blog" && themeMode === "day"
+                  : activeLink === "blog" && theme === "day"
                   ? styles.activeLinkDay
                   : ""
               } `}
@@ -113,9 +102,9 @@ export default function Header({ activeLink }) {
           <li>
             <Link
               className={`${styles.linksDesktop}  ${
-                activeLink === "about" && themeMode === "night"
+                activeLink === "about" && theme === "night"
                   ? styles.activeLinkNight
-                  : activeLink === "about" && themeMode === "day"
+                  : activeLink === "about" && theme === "day"
                   ? styles.activeLinkDay
                   : ""
               } `}
@@ -130,7 +119,7 @@ export default function Header({ activeLink }) {
         <div className={styles.iconDayOrNigth}>
           <div
             className={`${styles.dayOrNight} ${
-              themeMode === "night" ? styles.setNight : styles.setDay
+              theme === "night" ? styles.setNight : styles.setDay
             }`}
             onClick={handleTheme}
           >
@@ -138,14 +127,14 @@ export default function Header({ activeLink }) {
               className={
                 /////////////////////////////////////
                 `${styles.pickDayAnimation} ${
-                  themeMode === "night" ? styles.pickDay : animationDay
+                  theme === "night" ? styles.pickDay : animationDay
                 }`
               }
               src={pickDay}
             ></img>
             <img
               className={` ${styles.pickNightAnimation} ${
-                themeMode === "day" ? styles.pickNight : animationNight
+                theme === "day" ? styles.pickNight : animationNight
               }`}
               src={pickNight}
             ></img>
@@ -154,7 +143,7 @@ export default function Header({ activeLink }) {
 
         <div
           className={`${styles.containerBtn} ${
-            themeMode === "night"
+            theme === "night"
               ? styles.containerBtnNight
               : styles.containerBtnDay
           }`}
@@ -182,23 +171,23 @@ export default function Header({ activeLink }) {
 
             <use
               xlinkHref={"#circle"}
-              stroke={colorf.colorLogo.a}
+              stroke={color.colorLogo.a}
               strokeDasharray={"0,2.09,8.38,30"}
             />
             <use
               xlinkHref={"#circle"}
-              stroke={colorf.colorLogo.b}
+              stroke={color.colorLogo.b}
               strokeDasharray={"0,10.47,8.38,30"}
             />
             <use
               xlinkHref={"#circle"}
-              stroke={colorf.colorLogo.c}
+              stroke={color.colorLogo.c}
               strokeDasharray={"2.09,16.75,6.3"}
             />
           </svg>
           <p
             className={`${styles.logo} ${
-              themeMode === "night" ? styles.logoNight : styles.logoDay
+              theme === "night" ? styles.logoNight : styles.logoDay
             }`}
           >
             a
@@ -208,7 +197,7 @@ export default function Header({ activeLink }) {
 
       <div
         className={`${styles.burguerNav} ${isActiveButton} ${
-          themeMode === "night" ? styles.burguerNavNight : styles.burguerNavDay
+          theme === "night" ? styles.burguerNavNight : styles.burguerNavDay
         }`}
       >
         <ul>
@@ -217,19 +206,19 @@ export default function Header({ activeLink }) {
               <div className={styles.iconDayOrNigthMobile}>
                 <div
                   className={`${styles.dayOrNight} ${
-                    themeMode === "night" ? styles.setNight : styles.setDay
+                    theme === "night" ? styles.setNight : styles.setDay
                   }`}
                   onClick={handleTheme}
                 >
                   <img
                     className={`${styles.pickDayAnimation} ${
-                      themeMode === "night" ? styles.pickDay : animationDay
+                      theme === "night" ? styles.pickDay : animationDay
                     }`}
                     src={pickDay}
                   ></img>
                   <img
                     className={` ${styles.pickNightAnimation} ${
-                      themeMode === "day" ? styles.pickNight : animationNight
+                      theme === "day" ? styles.pickNight : animationNight
                     }`}
                     src={pickNight}
                   ></img>

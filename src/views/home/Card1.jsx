@@ -6,21 +6,23 @@ import arrowDown from "./images/arrowDown.png";
 import { useThemeStore } from "../../store/theme";
 import { useLanguageStore } from "../../store/language";
 import languageLibrary from "../../languages/languageLibrary";
+import themeLibrary from "../../themes/themeLibrary";
+
 export default function Card1() {
   const language = useLanguageStore((state) => state.language);
-  const themeMode = useThemeStore((state) => state.themeMode);
-  const colorz = useThemeStore((state) => state.colors);
+  const theme = useThemeStore((state) => state.themeMode);
+  const color = themeLibrary(theme);
   const strings = languageLibrary(language);
 
   return (
     <div className={styles.card1}>
       <div className={styles.card1Left}>
-        <h2 style={colorz.textEnable} className={styles.animation1}>
+        <h2 style={color.textEnable} className={styles.animation1}>
           {strings.home.text}
         </h2>
         <Link
           className={`${styles.button1Card1} ${
-            themeMode === "night"
+            theme === "night"
               ? styles.button1Card1Night
               : styles.button1Card1Day
           }`}
@@ -30,7 +32,7 @@ export default function Card1() {
         </Link>
         <Link
           className={`${styles.button2Card1} ${
-            themeMode === "night"
+            theme === "night"
               ? styles.button2Card1Night
               : styles.button2Card1Day
           }`}
@@ -41,7 +43,7 @@ export default function Card1() {
 
         <Link
           className={`${styles.button3Card1} ${
-            themeMode === "night"
+            theme === "night"
               ? styles.button3Card1Night
               : styles.button3Card1Day
           }`}
@@ -50,7 +52,7 @@ export default function Card1() {
           <img
             src={arrowDown}
             className={`${styles.arrowDown} ${
-              themeMode === "night" ? styles.arrowDownNight : ""
+              theme === "night" ? styles.arrowDownNight : ""
             }`}
           ></img>
           {strings.home.button3}
@@ -60,7 +62,7 @@ export default function Card1() {
       <div className={styles.card1Right}>
         <img
           className={styles.pickCard1}
-          src={themeMode === "night" ? pickCard1Night : pickCard1Day}
+          src={theme === "night" ? pickCard1Night : pickCard1Day}
         ></img>
       </div>
     </div>

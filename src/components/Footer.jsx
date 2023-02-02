@@ -7,6 +7,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useThemeStore } from "../store/theme";
 import { useLanguageStore } from "../store/language";
 import languageLibrary from "../languages/languageLibrary";
+import themeLibrary from "../themes/themeLibrary";
 
 export default function Footer() {
   const language = useLanguageStore((state) => state.language);
@@ -15,8 +16,11 @@ export default function Footer() {
   const checkRute = useParams();
   const navigate = useNavigate();
 
-  const colorf = useThemeStore((state) => state.colors);
-  const themeMode = useThemeStore((state) => state.themeMode);
+
+
+  const theme = useThemeStore((state) => state.themeMode);
+  const color = themeLibrary(theme)
+
   const setLanguage = useLanguageStore((state) => state.setLanguage);
 
   function handleLanguage(value) {
@@ -45,11 +49,11 @@ export default function Footer() {
       <div className={`${styles.container}`}>
         <div className={styles.socialMedia}>
           <div className={styles.left}>
-            <h2 style={colorf.textEnable}>{strings.footer.name}</h2>
-            <h2 style={colorf.textDisable}>{strings.footer.legend}</h2>
+            <h2 style={color.textEnable}>{strings.footer.name}</h2>
+            <h2 style={color.textDisable}>{strings.footer.legend}</h2>
             <div
               className={`${styles.icons} ${
-                themeMode === "night" ? styles.iconsNight : ""
+                theme === "night" ? styles.iconsNight : ""
               }`}
             >
               <a target={"_blank"} href="https://github.com/Drako9159">
@@ -70,7 +74,7 @@ export default function Footer() {
         </div>
 
         <div className={styles.info}>
-          <p style={colorf.textDisable} className={styles.laster}>
+          <p style={color.textDisable} className={styles.laster}>
             {strings.footer.rights}
           </p>
           <div className={styles.country}>
@@ -78,12 +82,12 @@ export default function Footer() {
               onChange={(e) => handleLanguage(e.target.value)}
               value={language}
               className={`${styles.selector}`}
-              style={colorf.layout}
+              style={color.layout}
             >
-              <option style={colorf.textDisable} value={"spanish"}>
+              <option style={color.textDisable} value={"spanish"}>
                 Spanish
               </option>
-              <option style={colorf.textDisable} value={"english"}>
+              <option style={color.textDisable} value={"english"}>
                 English
               </option>
             </select>
@@ -91,7 +95,7 @@ export default function Footer() {
               src={pickCountry}
               alt="world-language"
               className={`${
-                themeMode === "night" ? styles.pickCountryNight : ""
+                theme === "night" ? styles.pickCountryNight : ""
               }`}
             ></img>
           </div>

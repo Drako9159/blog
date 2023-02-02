@@ -3,7 +3,7 @@ import { useAuthStore } from "../store/auth";
 
 const authApi = axios.create({
   //Configuration
-  baseURL: "http://localhost:3000/api",
+  baseURL: "https://backendblog.fly.dev/api",
   //timeout: 8000,
   /*headers: {
     Accept: "application/json",
