@@ -1,5 +1,5 @@
-import { day } from "./day";
 import { night } from "./night";
+import { day } from "./day";
 
 export default function themeLibrary(theme) {
   const themes = {

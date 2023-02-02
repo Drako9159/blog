@@ -6,7 +6,5 @@ export const useErrorStore = create((set) => ({
     message: "",
   },
   setError: (error) =>
-    set((state) => ({
-      error: { code: state.error.code, messsage: state.error.message },
-    })),
+    set((state) => ({ error })),
 }));

@@ -3,7 +3,7 @@ import { useAuthStore } from "../store/auth";
 
 const authApi = axios.create({
   //Configuration
-  baseURL: import.meta.env.VITE_URL_PRODUCTION,
+  baseURL: import.meta.env.VITE_URL_DEV_1,
   //timeout: 8000,
   /*headers: {
     Accept: "application/json",
@@ -27,7 +27,6 @@ authApi.interceptors.request.use((config) => {
 
   config.headers = {
     authorization: `Bearer ${token.token}`,
-    //"x-drako-help": "la mejor oportunidad para aprender es enseñar"
   };
   return config;
 });
