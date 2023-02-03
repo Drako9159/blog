@@ -5,15 +5,12 @@ import Card2 from "./blog/Card2";
 import { useState, useEffect } from "react";
 import { getPostsEnglish, getPostsSpanish } from "../api/posts";
 import { useLanguageStore } from "../store/language";
-import { useErrorStore } from "../store/errors";
 import NotRequest from "../components/NotRequest";
 
 export default function Blog() {
   const language = useLanguageStore((state) => state.language);
   const [posts, setPosts] = useState([]);
   const [status, setStatus] = useState(0);
-  const setError = useErrorStore((state) => state.setError);
-  const getError = useErrorStore.getState().error;
 
   useEffect(() => {
     async function getPosts() {
@@ -28,12 +25,7 @@ export default function Blog() {
           });
         }
       } catch (error) {
-        //console.log(error);
         setStatus(error.request.status);
-        setError({
-          code: error.response.status,
-          message: error.response.statusText,
-        });
       }
     }
     setTimeout(() => {
@@ -41,11 +33,11 @@ export default function Blog() {
     }, 1500);
   }, []);
 
-  return getError.code >= 400 ? (
+  return status >= 400 ? (
     <>
       <Header activeLink={"blog"}></Header>
       <Card1></Card1>
-      <NotRequest></NotRequest>
+      <NotRequest status={status}></NotRequest>
       <Footer></Footer>
     </>
   ) : (

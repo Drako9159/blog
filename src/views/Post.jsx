@@ -5,15 +5,12 @@ import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getPost } from "../api/posts";
-import { useErrorStore } from "../store/errors";
 import NotRequest from "../components/NotRequest";
 
 export default function Post() {
   const routeParams = useParams();
   const [post, setPost] = useState([]);
   const [status, setStatus] = useState(0);
-  const setError = useErrorStore((state) => state.setError);
-  const getError = useErrorStore.getState().error;
 
   useEffect(() => {
     async function getOnePost() {
@@ -24,10 +21,6 @@ export default function Post() {
       } catch (error) {
         //console.log(error.response.status);
         setStatus(error.request.status);
-        setError({
-          code: error.response.status,
-          message: error.response.statusText,
-        });
       }
     }
     setTimeout(() => {
@@ -35,11 +28,11 @@ export default function Post() {
     }, 1500);
   }, []);
 
-  return getError.code >= 400 ? (
+  return status >= 400 ? (
     <>
       <Header activeLink={"blog"}></Header>
       <Card1></Card1>
-      <NotRequest></NotRequest>
+      <NotRequest status={status}></NotRequest>
       <Footer></Footer>
     </>
   ) : (

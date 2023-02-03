@@ -1,11 +1,10 @@
-import { useErrorStore } from "../store/errors";
+
 import themeLibrary from "../themes/themeLibrary";
 import { useThemeStore } from "../store/theme";
 import styles from "../styles/NotRequest.module.css";
 import { useNavigate } from "react-router-dom";
 
-export default function NotRequest() {
-  const getError = useErrorStore.getState().error;
+export default function NotRequest({status}) {
   const theme = useThemeStore((state) => state.themeMode);
   const color = themeLibrary(theme);
 
@@ -17,11 +16,11 @@ export default function NotRequest() {
   }
 
   return (
-    <div style={color.textEnable} className={styles.container}>
-      <h4 style={color.textEnable}>
-        {getError.code} {getError.message}
-      </h4>
-      <button style={color.textDisable} onClick={handleReload}>Refresh Page</button>
+    <div className={styles.container}>
+      <h4 style={color.textEnable}>{status} &nbsp; ¡Oh, no!</h4>
+      <button className={`${styles.button} ${theme === "night" ? styles.buttonNight : styles.buttonDay}`} onClick={handleReload}>
+        Refresh Page
+      </button>
     </div>
   );
 }

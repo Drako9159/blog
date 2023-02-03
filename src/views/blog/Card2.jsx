@@ -4,7 +4,6 @@ import ChargeAnimation from "../../components/ChargeAnimation";
 import { useThemeStore } from "../../store/theme";
 import themeLibrary from "../../themes/themeLibrary";
 import NotRequest from "../../components/NotRequest";
-import { useErrorStore } from "../../store/errors";
 
 export default function Card2({ posts, status }) {
   const theme = useThemeStore((state) => state.themeMode);
@@ -15,7 +14,7 @@ export default function Card2({ posts, status }) {
   }
 
   if (status >= 400) {
-    return <NotRequest />;
+    return <NotRequest status={status} />;
   }
 
   return (

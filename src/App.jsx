@@ -14,7 +14,6 @@ import { useThemeStore } from "./store/theme";
 import { useAuthStore } from "./store/auth";
 import { loginRequest } from "./api/auth";
 import { useLanguageStore } from "./store/language";
-import { useErrorStore } from "./store/errors";
 
 function App() {
   localStorage.getItem("themeMode") === null
@@ -28,12 +27,10 @@ function App() {
   const setTheme = useThemeStore((state) => state.setTheme);
   const setToken = useAuthStore((state) => state.setToken);
   const setLanguageMode = useLanguageStore((state) => state.setLanguage);
-  const setError = useErrorStore((state) => state.setError);
   setLanguageMode({ language: localStorage.getItem("languageMode") });
   //Reload theme inmediately
 
   setTheme({ themeMode: localStorage.getItem("themeMode") });
-  //login in aplication app active
   useEffect(() => {
     async function loginApi() {
       try {
@@ -44,7 +41,7 @@ function App() {
           setToken({ token: response.headers.authorization })
         );
       } catch (error) {
-        setError({ code: error.response.status, message: error.code });
+        console.log(error);
       }
     }
     loginApi();
