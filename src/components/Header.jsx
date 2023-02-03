@@ -54,6 +54,9 @@ export default function Header({ activeLink }) {
           <h3 style={color.textEnable}>{strings.header.home}</h3>
         </Link>
       </div>
+
+
+
       <div
         className={`${styles.nav} ${
           theme === "night" ? styles.navNight : styles.navDay
@@ -115,6 +118,13 @@ export default function Header({ activeLink }) {
           </li>
         </ul>
       </div>
+      
+
+
+
+
+
+
       <div className={styles.buttons}>
         <div className={styles.iconDayOrNigth}>
           <div

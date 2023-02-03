@@ -7,19 +7,19 @@
   -webkit-tap-highlight-color: transparent;
   display: flex;
   width: 90%;
-  background-color: transparent;
   font-family: montseBold;
+  margin-top: 50px;
 }
 .card1Left {
   background-color: transparent;
-  width: 50%;
+  width: 30%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   font-size: 1.3rem;
 }
 .card1Left h2 {
-  width: 70%;
+  width: 100%;
   margin: 0;
 }
 /*
@@ -86,7 +86,6 @@
   /** change from 60 to 90 for best mobile experience */
   width: 90%;
   max-width: 270px;
-  
 }
 .arrowDown {
   width: 26px;
@@ -113,44 +112,40 @@
 }
 
 .card1Right {
-  width: 50%;
+  width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .pickCard1 {
-  width: 100%;
-  /*
-    animation: pickCard1 2s ease;*/
+  width: 600px;
+  position: absolute;
+  animation: animationPickCard1Desktop 1s ease;
 }
 
 /* Animation pick on desktop */
-@media screen and (min-width: 1000px) {
-  .pickCard1 {
-    width: 100%;
-    
-      animation: pickCard1 1s ease;
-  }
-}
-@keyframes pickCard1 {
+
+@keyframes animationPickCard1Desktop {
   0% {
     opacity: 0;
-    width: 150%;
-    height: 120%;
-    
+    width: 700px;
   }
   100% {
     opacity: 1;
-    width: 100%;
-    height: 100%;
-    
+    width: 600px;
   }
 }
 
-/* Card1 */
-@media screen and (max-width: 1000px) {
+/* Card1 Mobile*/
+@media screen and (max-width: 900px) {
   .card1 {
     flex-direction: column-reverse;
+    margin-top: 0px;
+  }
+  .pickCard1 {
+    width: 90vw;
+    position: relative;
+    animation: animationPickCard1Mobile 1s ease;
   }
   .card1Left {
     align-items: center;
@@ -159,17 +154,24 @@
   }
   .card1Left h2 {
     width: 100%;
-   
   }
 
   .card1Right {
     width: 100%;
   }
-  .pickCard1{
+  .pickCard1 {
     margin-bottom: 30px;
   }
 }
-@media screen and (min-width: 1000px) {
+@keyframes animationPickCard1Mobile {
+  0% {
+    opacity: 0;
+   
+  }
+  100% {
+    opacity: 1;
+    
+  }
 }
 
 .animation1 {

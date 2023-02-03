@@ -214,10 +214,8 @@
 .burguerNavDay .linksDesktop:hover {
   background-color: rgb(96, 96, 102);
   transition: background 0.3s ease;
-  
 }
-.burguerNavDay .linksDesktop:hover h3{
-
+.burguerNavDay .linksDesktop:hover h3 {
   color: #dee1ec;
 }
 
@@ -230,6 +228,7 @@
   justify-content: space-around;
   width: 150px;
   min-width: 120px;
+  
 }
 .dayOrNight {
   display: flex;
@@ -528,18 +527,28 @@ span + span {
   }
 }
 /* Container Burguer Button */
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1123px) {
+  .icon {
+    display: none;
+  }
+  
+}
+@media screen and (max-width: 1050px) {
   .nav {
     display: none;
   }
+
   .iconDayOrNigth {
     display: none;
   }
   .containerBtn {
     display: flex;
   }
+  .icon{
+    display: flex;
+  }
 }
-@media screen and (min-width: 1150px) {
+@media screen and (min-width: 1050px) {
   .burguerNav {
     display: none;
   }
@@ -547,6 +556,15 @@ span + span {
     display: flex;
   }
 }
+
+@media screen and (max-width: 370px) {
+  .icon {
+    display: none;
+  }
+  
+}
+/* for shutdown icon animation */
+
 .logo {
   position: absolute;
   font-family: tumbly;
