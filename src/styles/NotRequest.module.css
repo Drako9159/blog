@@ -1,12 +1,20 @@
 @font-face {
-    font-family: montseThini;
-    src: url("../assets/Montserrat-Regular.ttf");
-  }
-  .container {
-    margin-top: 50px;
-  }
-  .container h4{
-
-    margin: 0;
-    font-family: montseThin;
-  }
+  font-family: montseThini;
+  src: url("../assets/Montserrat-Regular.ttf");
+}
+.container {
+  margin-top: 50px;
+  font-family: montseThin;
+}
+.container h4 {
+  margin: 0;
+  
+}
+.container button {
+  text-decoration: none;
+  border: solid 2px;
+  padding: 20px;
+  border-radius: 50px;
+  margin-top: 20px;
+  cursor: pointer;
+}

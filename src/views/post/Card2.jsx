@@ -2,6 +2,7 @@ import styles from "./Card2.module.css";
 import ChargeAnimation from "../../components/ChargeAnimation";
 import { useThemeStore } from "../../store/theme";
 import themeLibrary from "../../themes/themeLibrary";
+import NotRequest from "../../components/NotRequest";
 
 export default function Card1({ post, status }) {
   const theme = useThemeStore((state) => state.themeMode);
@@ -12,9 +13,7 @@ export default function Card1({ post, status }) {
   }
   if (status >= 400) {
     return (
-      <div style={color.textEnable} className={styles.container}>
-        NOT POST FOUND
-      </div>
+      <NotRequest/>
     );
   }
   return (

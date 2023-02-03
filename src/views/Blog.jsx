@@ -2,7 +2,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Card1 from "./blog/Card1";
 import Card2 from "./blog/Card2";
-import NotFound from "../components/NotFound";
 import { useState, useEffect } from "react";
 import { getPostsEnglish, getPostsSpanish } from "../api/posts";
 import { useLanguageStore } from "../store/language";
@@ -31,15 +30,17 @@ export default function Blog() {
       } catch (error) {
         //console.log(error);
         setStatus(error.request.status);
-        //setError({ code: error.response.status, message: error.response.data.message})
-        console.log(error.response)
+        setError({
+          code: error.response.status,
+          message: error.response.statusText,
+        });
       }
     }
     setTimeout(() => {
       getPosts();
     }, 1500);
   }, []);
-  
+
   return getError.code >= 400 ? (
     <>
       <Header activeLink={"blog"}></Header>
