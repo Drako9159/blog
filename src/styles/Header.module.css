@@ -47,14 +47,14 @@
 .title .linkTitle:hover:before {
   max-width: 200px;
 }
-/*
+
 .titleDay .linkTitle:before {
   background-color: #121213;
 }
 .titleNight .linkTitle:before {
   background-color: #ececec;
 }
-*/
+
 
 /*
 .titleDay .linkTitle {
