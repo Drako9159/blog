@@ -3,6 +3,7 @@ import { useAuthStore } from "../store/auth";
 
 const authApi = axios.create({
   //Configuration
+  //DEFAULT PRODUCTION//VITE_URL_PRODUCTION_V2
   baseURL: import.meta.env.VITE_URL_PRODUCTION_V2,
   //timeout: 8000,
   /*headers: {
@@ -11,10 +12,10 @@ const authApi = axios.create({
   },*/
   /*
   headers: {
-    
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Credentials": true,
-    "Content-Type": "application/json"
+    //"Access-Control-Allow-Origin": "*",
+    //"Access-Control-Allow-Credentials": true,
+    Accept: "application/json",
+    //"Accept-Language": "es-CL, es"
   },*/
   credentials: "include",
   withCredentials: true,
@@ -27,6 +28,9 @@ authApi.interceptors.request.use((config) => {
 
   config.headers = {
     authorization: `Bearer ${token.token}`,
+    Accept: "application/json",
+    credentials: "include",
+    withCredentials: true,
   };
   return config;
 });
