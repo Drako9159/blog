@@ -50,6 +50,7 @@ export default function Card1() {
           to="/about"
         >
           <img
+            alt="arror-down"
             src={arrowDown}
             className={`${styles.arrowDown} ${
               theme === "night" ? styles.arrowDownNight : ""
@@ -61,6 +62,7 @@ export default function Card1() {
 
       <div className={styles.card1Right}>
         <img
+          alt="front-image-home"
           className={styles.pickCard1}
           src={theme === "night" ? pickCard1Night : pickCard1Day}
         ></img>
