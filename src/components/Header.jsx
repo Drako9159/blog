@@ -55,8 +55,6 @@ export default function Header({ activeLink }) {
         </Link>
       </div>
 
-
-
       <div
         className={`${styles.nav} ${
           theme === "night" ? styles.navNight : styles.navDay
@@ -118,12 +116,6 @@ export default function Header({ activeLink }) {
           </li>
         </ul>
       </div>
-      
-
-
-
-
-
 
       <div className={styles.buttons}>
         <div className={styles.iconDayOrNigth}>
@@ -134,6 +126,7 @@ export default function Header({ activeLink }) {
             onClick={handleTheme}
           >
             <img
+              alt="day-night"
               className={
                 /////////////////////////////////////
                 `${styles.pickDayAnimation} ${
@@ -143,6 +136,7 @@ export default function Header({ activeLink }) {
               src={pickDay}
             ></img>
             <img
+              alt="night-day"
               className={` ${styles.pickNightAnimation} ${
                 theme === "day" ? styles.pickNight : animationNight
               }`}
@@ -150,7 +144,6 @@ export default function Header({ activeLink }) {
             ></img>
           </div>
         </div>
-
 
         <div
           className={`${styles.containerBtn} ${
@@ -222,12 +215,14 @@ export default function Header({ activeLink }) {
                   onClick={handleTheme}
                 >
                   <img
+                    alt="day-night"
                     className={`${styles.pickDayAnimation} ${
                       theme === "night" ? styles.pickDay : animationDay
                     }`}
                     src={pickDay}
                   ></img>
                   <img
+                    alt="night-day"
                     className={` ${styles.pickNightAnimation} ${
                       theme === "day" ? styles.pickNight : animationNight
                     }`}
