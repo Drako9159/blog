@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getPost } from "../api/posts";
+import { getArticle } from "../api/articles";
 import NotRequest from "../components/NotRequest";
 
 export default function Post() {
@@ -15,7 +15,7 @@ export default function Post() {
   useEffect(() => {
     async function getOnePost() {
       try {
-        await getPost(routeParams.id).then((response) => {
+        await getArticle(routeParams.id).then((response) => {
           setPost(response.data), setStatus(response.status);
         });
       } catch (error) {

@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Card1 from "./blog/Card1";
 import Card2 from "./blog/Card2";
 import { useState, useEffect } from "react";
-import { getPostsEnglish, getPostsSpanish } from "../api/posts";
+import { getArticlesEnglish, getArticlesSpanish } from "../api/articles";
 import { useLanguageStore } from "../store/language";
 import NotRequest from "../components/NotRequest";
 
@@ -16,11 +16,11 @@ export default function Blog() {
     async function getPosts() {
       try {
         if (language === "spanish") {
-          await getPostsSpanish().then((response) => {
+          await getArticlesSpanish().then((response) => {
             setPosts(response.data.data), setStatus(response.status);
           });
         } else if (language === "english") {
-          await getPostsEnglish().then((response) => {
+          await getArticlesEnglish().then((response) => {
             setPosts(response.data.data), setStatus(response.status);
           });
         }

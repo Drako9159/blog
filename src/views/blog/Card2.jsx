@@ -32,7 +32,7 @@ export default function Card2({ posts, status }) {
                 ></img>
               </div>
               <div className={styles.body}>
-                <p style={color.textDisable}>{e.createdAt}</p>
+                <p style={color.textDisable}>{e.createdAt} - {e.readTime}</p>
               </div>
               <div style={color.textEnable} className={`${styles.footer}`}>
                 <h2>{e.title}</h2>
