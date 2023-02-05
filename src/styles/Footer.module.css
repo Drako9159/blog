@@ -53,6 +53,7 @@
 }
 .icons img {
   width: 35px;
+  height: auto;
   margin: 7px;
 }
 .iconsNight img {
