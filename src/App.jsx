@@ -9,6 +9,7 @@ import Blog from "./pages/Blog";
 import Home from "./pages/Home";
 import Post from "./pages/Post";
 import ScrollToTop from "./utils/ScrollToTop";
+import Movies from "./pages/Movies";
 
 import { useThemeStore } from "./store/theme";
 import { useAuthStore } from "./store/auth";
@@ -52,11 +53,12 @@ function App() {
         <BrowserRouter>
           <ScrollToTop></ScrollToTop>
           <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/about" element={<About />}></Route>
-            <Route path="/blog" element={<Blog />}></Route>
-            <Route path="/blog/:id" element={<Post />}></Route>
-            <Route path="*" element={<NotFound></NotFound>}></Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/private/movies" element={<Movies/>} />
+            <Route path="/blog/:id" element={<Post />} />
+            <Route path="*" element={<NotFound></NotFound>} />
           </Routes>
         </BrowserRouter>
       </Wrapper>
