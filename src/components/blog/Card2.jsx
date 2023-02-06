@@ -25,14 +25,16 @@ export default function Card2({ posts, status }) {
             <div className={styles.card}>
               <div className={styles.head}>
                 <img
-                  src={`https://backendblog.fly.dev${e.image}`}
+                  src={`https://backendblog.fly.dev/api/v2/images/articles${e.image}`}
                   alt={e.title}
                   className={styles.pick}
                   style={{ outlineColor: `${e.color}` }}
                 ></img>
               </div>
               <div className={styles.body}>
-                <p style={color.textDisable}>{e.createdAt} - {e.readTime}</p>
+                <p style={color.textDisable}>
+                  {e.createdAt} - {e.readTime}
+                </p>
               </div>
               <div style={color.textEnable} className={`${styles.footer}`}>
                 <h2>{e.title}</h2>

@@ -4,7 +4,7 @@ import { useAuthStore } from "../store/auth";
 const authApi = axios.create({
   //Configuration
   //DEFAULT PRODUCTION//VITE_URL_PRODUCTION_V2
-  baseURL: import.meta.env.VITE_URL_PRODUCTION_V2,
+  baseURL: import.meta.env.VITE_URL_PRODUCTION_2,
   //timeout: 8000,
   /*headers: {
     Accept: "application/json",
