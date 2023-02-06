@@ -1,5 +1,5 @@
-import Card2 from "./post/Card2";
-import Card1 from "./post/Card1";
+import Card2 from "../components/post/Card2";
+import Card1 from "../components/post/Card1";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";

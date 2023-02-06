@@ -1,17 +1,9 @@
-@font-face {
-  font-family: montseThin;
-  src: url("../../assets/Montserrat-Regular.ttf");
-}
 
-@font-face {
-  font-family: tumbly;
-  src: url("../../assets/Tumbly A2.otf");
-}
+
 .container {
-  font-family: montseThin;
+  font-family: "Montse";
   width: 100%;
- 
-  
+
   display: flex;
   justify-content: center;
   margin-top: 50px;
@@ -26,63 +18,23 @@
   width: 39%;
   height: 100%;
   display: flex;
- 
   justify-content: center;
-  align-items: flex-end;
- 
+  flex-direction: column;
 }
-.button{
-  display: flex;
-  margin-top: 120px;
-  gap: 20px;
-  
-  text-decoration: none;
-
-  
- 
-  
+.left h1 {
+  font-size: 2.3rem;
+  margin: 0;
+  line-height: 50px;
 }
-
-.button div img{
-  width: 30px;
-  z-index: 50;
-  object-fit: contain;
-  transform: rotate(90deg);
-  
-
-
+.left h1:nth-child(2) {
+  color: #7f7f85;
 }
-.button div {
-  
-  display: flex;
-  justify-content: center;
-  width: 50px;
-  
-}
-.button:hover > div img{
-  position: relative;
-  left: -5px;
-  animation: down .3s ease;
-  
-  
-
-}
-@keyframes down {
-  0%{ left: 0; }
-  100%{ left: -5px; }
-}
-
-.button p{
-  font-weight: bold;
-  
-}
-
-
 .right {
   width: 50%;
+
   width: 50%;
   height: 100%;
-  font-family: tumbly;
+  font-family: "Tumbly";
 }
 .logotipo {
   display: flex;
@@ -124,24 +76,25 @@
   background-color: #26c000;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 720px) {
   .container {
     flex-direction: column;
-    width: 90%;
   }
-  .left{
-    justify-content: left;
-    width: 100%;
+  .left {
+    width: 95%;
+
+    margin: 0 auto;
+  }
+  .left h1 {
+    font-size: 1.8em;
+
+    margin: 0;
+    line-height: 40px;
   }
   .right {
     width: 100%;
     margin-top: 20px;
-    display: none;
   }
-  .button{
-    margin: 0;
-  }
-
 }
 .animation1 {
   animation: animateText1 .4s ease;

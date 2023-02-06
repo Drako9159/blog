@@ -4,10 +4,10 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useEffect } from "react";
 //import Start from "./views/start/Start";
 import NotFound from "./components/NotFound";
-import About from "./views/About";
-import Blog from "./views/Blog";
-import Home from "./views/Home";
-import Post from "./views/Post";
+import About from "./pages/About";
+import Blog from "./pages/Blog";
+import Home from "./pages/Home";
+import Post from "./pages/Post";
 import ScrollToTop from "./utils/ScrollToTop";
 
 import { useThemeStore } from "./store/theme";

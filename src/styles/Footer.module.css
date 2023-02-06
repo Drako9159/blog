@@ -1,12 +1,7 @@
-@font-face {
-  font-family: montseThini;
-  src: url("../assets/Montserrat-Regular.ttf");
-}
 .container {
-  font-family: montseThini;
+  font-family: "Montse";
   width: 100%;
   margin-top: 50px;
-
   display: flex;
   flex-direction: column;
 }
@@ -87,7 +82,7 @@
   filter: contrast(1%);
 }
 .selector {
-  font-family: montseThini;
+  font-family: "Montse";
   border: none;
   font-size: 17px;
   cursor: pointer;
@@ -98,7 +93,7 @@
   padding: 10px;
   border: none;
   outline: none;
-}/*
+} /*
 .selectorDay {
   color: #4e4e4e;
   background-color: #ffffff;

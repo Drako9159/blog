@@ -1,9 +1,9 @@
 import styles from "./Card2.module.css";
 import { Link } from "react-router-dom";
-import ChargeAnimation from "../../components/ChargeAnimation";
+import ChargeAnimation from "../ChargeAnimation";
 import { useThemeStore } from "../../store/theme";
 import themeLibrary from "../../themes/themeLibrary";
-import NotRequest from "../../components/NotRequest";
+import NotRequest from "../NotRequest";
 
 export default function Card2({ posts, status }) {
   const theme = useThemeStore((state) => state.themeMode);

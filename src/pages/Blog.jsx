@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Card1 from "./blog/Card1";
-import Card2 from "./blog/Card2";
+import Card1 from "../components/blog/Card1";
+import Card2 from "../components/blog/Card2";
 import { useState, useEffect } from "react";
 import { getArticlesEnglish, getArticlesSpanish } from "../api/articles";
 import { useLanguageStore } from "../store/language";

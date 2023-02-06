@@ -1,4 +1,4 @@
-import Card1 from "./home/Card1";
+import Card1 from "../components/home/Card1";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 

@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Card1 from "./about/Card1";
+import Card1 from "../components/about/Card1";
 
 export default function About() {
   return (

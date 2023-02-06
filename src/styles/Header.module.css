@@ -1,14 +1,8 @@
-@font-face {
-  font-family: montseBold;
-  src: url("../assets/Montserrat-Medium.ttf");
-}
-@font-face {
-  font-family: tumbly;
-  src: url("../assets/Tumbly A2.otf");
-}
+
+
 /* Container */
 .container {
-  font-family: montseBold;
+  font-family: "Montse";
   width: 100%;
   min-height: 135px;
   display: flex;
@@ -567,7 +561,7 @@ span + span {
 
 .logo {
   position: absolute;
-  font-family: tumbly;
+  font-family: "Tumbly";
   display: flex;
   align-items: center;
   margin: 0;

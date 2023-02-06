@@ -1,10 +1,7 @@
-@font-face {
-  font-family: montseThini;
-  src: url("../assets/Montserrat-Regular.ttf");
-}
+
 .container {
   margin-top: 50px;
-  font-family: montseThin;
+  font-family: "Montse";
   display: flex;
   justify-content: center;
   align-items: center;

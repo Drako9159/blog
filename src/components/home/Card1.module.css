@@ -1,42 +1,42 @@
-@font-face {
-  font-family: montseBold;
-  src: url("../../assets/Montserrat-Medium.ttf");
-}
+
 /* Card1 */
 .card1 {
   -webkit-tap-highlight-color: transparent;
   display: flex;
   width: 90%;
-  background-color: transparent;
-  font-family: montseBold;
+  font-family: "Montse";
+  margin-top: 50px;
 }
 .card1Left {
   background-color: transparent;
-  width: 50%;
+  width: 30%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   font-size: 1.3rem;
 }
 .card1Left h2 {
-  width: 70%;
+  width: 100%;
+  margin: 0;
 }
-
+/*
 .card1LeftNight h2 {
   color: #ececec;
 }
 .card1LeftDay h2 {
   color: #121213;
 }
-
+*/
 .card1Left .button1Card1 {
   text-decoration: none;
   padding: 1.5rem;
   border-radius: 50px;
   text-align: center;
   width: 30%;
+
   min-width: 150px;
   margin: 1.1rem;
+  margin-top: 50px;
 }
 .button1Card1Night {
   background-color: #ececec;
@@ -80,7 +80,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 60%;
+  /** change from 60 to 90 for best mobile experience */
+  width: 90%;
   max-width: 270px;
 }
 .arrowDown {
@@ -90,53 +91,60 @@
   transition: box-shadow 0.6s ease;
   box-shadow: 0 0 0 2px #80808070;
   margin: 0 15px 0 0;
-
 }
-.arrowDownNight{
+.arrowDownNight {
   filter: contrast(1%);
 }
-.button3Card1Night{
-    color: #ececec;
+.button3Card1Night {
+  color: #ececec;
 }
-.button3Card1Day{
-    color: #121213;
+.button3Card1Day {
+  color: #121213;
 }
 .button3Card1Night:hover > .arrowDown {
-    box-shadow: 0 0 0 2px #ececec;
-  }
+  box-shadow: 0 0 0 2px #ececec;
+}
 .button3Card1Day:hover > .arrowDown {
   box-shadow: 0 0 0 2px #121213;
 }
 
-
-
-
 .card1Right {
-  width: 50%;
+  width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .pickCard1 {
-  width: 100%;
- /*
-  animation: pickCard1 2s ease;*/
+  width: 600px;
+  height: auto;
+  position: absolute;
+  animation: animationPickCard1Desktop 1s ease;
 }
-@keyframes pickCard1 {
+
+/* Animation pick on desktop */
+
+@keyframes animationPickCard1Desktop {
   0% {
     opacity: 0;
-    
+    width: 700px;
   }
   100% {
     opacity: 1;
-   
+    width: 600px;
   }
 }
 
-/* Card1 */
-@media screen and (max-width: 1000px) {
+/* Card1 Mobile*/
+@media screen and (max-width: 900px) {
   .card1 {
     flex-direction: column-reverse;
+    margin-top: 0px;
+  }
+  .pickCard1 {
+    width: 90vw;
+    height: auto;
+    position: relative;
+    animation: animationPickCard1Mobile 1s ease;
   }
   .card1Left {
     align-items: center;
@@ -150,6 +158,32 @@
   .card1Right {
     width: 100%;
   }
+  .pickCard1 {
+    margin-bottom: 30px;
+  }
 }
-@media screen and (min-width: 1000px) {
+@keyframes animationPickCard1Mobile {
+  0% {
+    opacity: 0;
+   
+  }
+  100% {
+    opacity: 1;
+    
+  }
+}
+
+.animation1 {
+  animation: animateText1 0.4s ease;
+}
+@keyframes animateText1 {
+  0% {
+    opacity: 0;
+    margin-top: 20px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
 }

@@ -1,26 +1,17 @@
-@font-face {
-  font-family: montseThin;
-  src: url("../../assets/Montserrat-Regular.ttf");
-}
-
-@font-face {
-  font-family: tumbly;
-  src: url("../../assets/Tumbly A2.otf");
-}
 .container {
-  font-family: montseThin;
+  font-family: "Montse";
   width: 100%;
-
   display: flex;
   justify-content: center;
   margin-top: 50px;
-}/*
+}
+
 .containerNight {
   color: #ececec;
 }
 .containerDay {
   color: #121213;
-}*/
+}
 .left {
   width: 39%;
   height: 100%;
@@ -41,7 +32,7 @@
 
   width: 50%;
   height: 100%;
-  font-family: tumbly;
+  font-family: "Tumbly";
 }
 .logotipo {
   display: flex;
@@ -83,7 +74,7 @@
   background-color: #26c000;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1000px) {
   .container {
     flex-direction: column;
   }
@@ -104,34 +95,30 @@
   }
 }
 .animation1 {
-  animation: animateText1 .4s ease;
-  
+  animation: animateText1 0.4s ease;
 }
 @keyframes animateText1 {
   0% {
     opacity: 0;
     margin-top: 20px;
   }
- 
+
   100% {
     opacity: 1;
     margin-top: 0;
-    
   }
 }
 .animation2 {
-    animation: animateText2 .7s ease-in-out;
-    
+  animation: animateText2 0.7s ease-in-out;
+}
+@keyframes animateText2 {
+  0% {
+    opacity: 0;
+    margin-top: 30px;
   }
-  @keyframes animateText2 {
-    0% {
-      opacity: 0;
-      margin-top: 30px;
-    }
-   
-    100% {
-      opacity: 1;
-      margin-top: 0;
-      
-    }
+
+  100% {
+    opacity: 1;
+    margin-top: 0;
   }
+}

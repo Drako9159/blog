@@ -1,8 +1,8 @@
 import styles from "./Card1.module.css";
 import { Link } from "react-router-dom";
-import pickCard1Night from "./images/moon.png";
-import pickCard1Day from "./images/dino.png";
-import arrowDown from "./images/arrowDown.png";
+import pickCard1Night from "../../assets/home/images/moon.png";
+import pickCard1Day from "../../assets/home/images/dino.png";
+import arrowDown from "../../assets/home/images/arrowDown.png";
 import { useThemeStore } from "../../store/theme";
 import { useLanguageStore } from "../../store/language";
 import languageLibrary from "../../languages/languageLibrary";
