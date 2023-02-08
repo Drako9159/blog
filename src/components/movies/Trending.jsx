@@ -3,7 +3,7 @@ import { getTrending } from "../../api/movies";
 import styles from "./Trending.module.css";
 
 export default function Trending() {
-  const [page, setPage] = useState(3);
+  const [page, setPage] = useState(1);
   const [trending, setTrending] = useState([]);
   useEffect(() => {
     async function getTrendingTop() {
@@ -16,10 +16,14 @@ export default function Trending() {
   console.log(trending);
   return (
     <div className={styles.container}>
-      <h1>imagenes</h1>
+      <h2>Trending</h2>
       {trending.map((e) => {
         return (
-          <img src={`https://image.tmdb.org/t/p/w500/${e.poster_path}`}></img>
+          <div>
+            <img src={`https://image.tmdb.org/t/p/w500/${e.poster_path}`}></img>
+            {console.log(e.title)}
+            <p>{e.title === undefined ? e.name : e.title}</p>
+          </div>
         );
       })}
     </div>
