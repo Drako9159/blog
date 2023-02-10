@@ -3,6 +3,7 @@ import Nav from "../components/movies/Nav";
 import Selectors from "../components/movies/Selectors";
 import Main from "../components/movies/Main";
 
+// this is special site for seaching movies and tv shows
 import styles from "../styles/Movies.module.css";
 export default function Movies() {
   return (
