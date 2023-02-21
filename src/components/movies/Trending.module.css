@@ -1,14 +1,42 @@
 .container {
-  background-color: #ffffff;
+  background-color: #e92222;
   color: #000000;
   width: 100%;
   gap: 20px;
   display: flex;
-  flex-wrap: wrap;
+  
   font-family: "Montse";
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+ 
 }
-.container img{
-    border-radius: 10px;
-    width: 150px;
-    object-fit: cover;
+.container img {
+  border-radius: 10px;
+  width: 170px;
+  object-fit: cover;
+}
+.container h2{
+  margin: 0;
+}
+.trendingContent {
+  display: flex;
+  background-color: blue;
+ 
+  justify-content: center;
+  width: 1250px;
+  
+  overflow: auto;
+  gap: 17px;
+  
+  
+}
+.scroller{
+  background-color: green;
+  
+}
+.scroller p{
+  overflow: hidden;
+  
+  
 }

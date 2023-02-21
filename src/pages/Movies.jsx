@@ -12,6 +12,7 @@ export default function Movies() {
         <div className={styles.primary}>
           <Header />
           <div className={styles.main}>
+            
             <div className={styles.left}>
               <Nav />
             </div>
