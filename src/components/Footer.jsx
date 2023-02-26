@@ -59,12 +59,15 @@ export default function Footer() {
               <a target={"_blank"} href="https://github.com/Drako9159">
                 <img alt="github" src={pickGithub}></img>
               </a>
+              {/*
               <a
                 target={"_blank"}
                 href="https://www.linkedin.com/in/antonio-jaramillo-099a77250"
               >
                 <img alt="linkedIn" src={pickLinkedin}></img>
               </a>
+            */}
+
               <a target={"_blank"} href="https://twitter.com/Drako9159">
                 <img alt="twitter" src={pickTwitter}></img>
               </a>
