@@ -48,6 +48,22 @@
   object-fit: cover;
   border-radius: 10px;
 }
+.container img[alt=image-gif] {
+  width: 100%;
+  margin: 0;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+.container img[alt=image-complete] {
+  width: 100%;
+  margin: 0;
+  
+  object-fit: contain;
+  height: 300px;
+  
+  border-radius: 10px;
+}
 
 .container pre {
   padding: 40px;
